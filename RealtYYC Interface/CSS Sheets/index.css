@@ -1,9 +1,24 @@
 /* All these styles are for a responsive landing page*/
 
+ul {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+li {
+    display: inline;
+}
+
 * {
     box-sizing: border-box;
 }
 
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
 
 [class*="col-"] {
     float: left;
