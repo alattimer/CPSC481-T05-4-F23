@@ -10,6 +10,11 @@ li {
     display: inline;
 }
 
+.filter-dropdown
+{
+    display: inline;
+}
+
 * {
     box-sizing: border-box;
 }
