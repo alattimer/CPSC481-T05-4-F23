@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .filter-panel {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 10px;
+        }
+        .filter-panel select, .filter-panel input {
+            margin: 5px;
+        }
+        @media (max-width: 600px) {
+            .filter-panel {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="filter-panel">
+        <input type="text" id="city" placeholder="Choose city">
+
+        <select id="priceRange">
+            <option value="">Any Price Range</option>
+            <option value="1">$0 - $500,000</option>
+            <option value="2">$500,000 - $1,000,000</option>
+            <option value="3">$1,000,000+</option>
+        </select>
+
+        <select id="propertyType">
+            <option value="">All Property Types</option>
+            <option value="house">House</option>
+            <option value="apartment">Apartment</option>
+        </select>
+
+        <select id="bedrooms">
+            <option value="">Any Number of Bedrooms</option>
+            <option value="1">1 Bedroom</option>
+            <option value="2">2 Bedrooms</option>
+            <option value="3">3 Bedrooms</option>
+        </select>
+
+        <!-- Advanced Search -->
+        <details id="advancedSearch">
+            <summary>Advanced Search</summary>
+
+            <!-- Commute Section -->
+            <div id="commuteSection">
+                <input type="text" id="address" placeholder="Enter address">
+                <input type="number" id="travelTime" placeholder="Travel time (minutes)">
+            </div>
+
+            <!-- Room Section -->
+            <div id="roomSection">
+                <small>Bathroom</small>
+                <select id="bathrooms">
+                    <option value="">Any Number of Bathrooms</option>
+                    <option value="1">1 Bathroom</option>
+                    <option value="2">2 Bathrooms</option>
+                    <option value="3">3 Bathrooms</option>
+                </select>
+            </div>
+
+            <!-- Home Size Section -->
+            <div id="homeSizeSection">
+                <small>Home Size</small>
+                <input type="text" id="minHomeSize" placeholder="Min">
+
+                <input type="text" id="maxHomeSize" placeholder="Max">
+            </div>
+
+            <!-- Land Size Section -->
+            <div id="landSizeSection">
+                <small>Land Size</small>
+                <input type="text" id="minLandSize" placeholder="Min">
+
+                <input type="text" id="maxLandSize" placeholder="Max">
+            </div>
+        </details>
+
+        <button id="applyButton">
+            <small>Apply</small>
+        </button>
+
+    </div>
+
+</body>
+</html>
