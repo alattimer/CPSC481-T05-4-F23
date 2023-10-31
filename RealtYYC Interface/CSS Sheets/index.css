@@ -1,6 +1,5 @@
 /* All these styles are for a responsive landing page*/
 #body-overrides {
-    margin: 5px;
     background-image: url("Calgary.jpg");
     background-size: cover;
 }
