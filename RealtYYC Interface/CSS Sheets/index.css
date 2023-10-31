@@ -1,4 +1,13 @@
 /* All these styles are for a responsive landing page*/
+#body-overrides {
+    margin: 5px;
+    background-image: url("Calgary.jpg");
+    background-size: cover;
+}
+
+#row-overrides{
+    background-color: lightcyan;
+}
 
 ul {
     position: fixed;
@@ -10,8 +19,7 @@ li {
     display: inline;
 }
 
-.filter-dropdown
-{
+.filter-dropdown {
     display: inline;
 }
 

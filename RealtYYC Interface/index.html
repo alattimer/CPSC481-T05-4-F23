@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-    <link rel="stylesheet" href="CSS Sheets/index.css">
     <!--BOOTSTRAP CDN-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
@@ -10,200 +9,236 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <!--END OF BOOTSTRAP CDN-->
+    <link rel="stylesheet" href="CSS Sheets/index.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
-<!--THIS ROW IS FOR THE TOP OF THE WEBPAGE, USED FOR THE REALTYYC BANNER AND MENU OPTIONS-->
-<div class="row">
-    <div class="col-3">
-        <div class="header">
-            <h1>RealtYYC</h1>
-        </div>
-    </div>
-    <div class="col-9">
-        <ul>
-            <li><a class="active" href="index.html">Home</a></li>
-            <li><a href="#Filter">Filter</a></li>
-            <li><a href="#Realtors">Realtors</a></li>
-        </ul>
-    </div>
-    <div class="filter-dropdown">
-        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-            Filter
-          </a>
-        
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-            <form class="px-4 py-3">
-                <select class="form-select" aria-label="Home Type">
-                    <option selected>Home Type</option>
-                    <option value="1">House</option>
-                    <option value="2">Condominium</option>
-                    <option value="3">Duplex</option>
-                    <option value="4">Bungalow</option>
-                    <option value="5">Bi-level</option>
-                </select>
-                <select class="form-select" aria-label="No. of Bedrooms">
-                    <option selected>No. of Bedrooms</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three or more</option>
-                </select>
-                <select class="form-select" aria-label="No. of Bathrooms">
-                    <option selected>No. of Bathrooms</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three or more</option>
-                </select>
-                <label for="MinimumPrice" class="form-label">Minimum Price</label>
-                <input type="range" class="form-range" min="0" max="1000" id="MinimumPrice">
-                <label for="MaximumPrice" class="form-label">Maximum Price</label>
-                <input type="range" class="form-range" min="0" max="1000" id="MaximumPrice">
-                <label for="MinimumSize" class="form-label">Minimum Size (sq. ft.)</label>
-                <input type="range" class="form-range" min="0" max="1000" id="MinimumSize">
-                <label for="MaximumSize" class="form-label">Maximum Size (sq. ft.)</label>
-                <input type="range" class="form-range" min="0" max="1000" id="MaximumSize">
-                <button type="submit" class="btn btn-primary">Search</button>
-            </form>
-        </div>   
-    </div>
-</div>
+<body id="body-overrides">
 
-<!--LISTING CONTAINER, EACH ROW IS A NEW LISTING TO SHOW OUR CLIENTS-->
-<div class="container-fluid text-center overflow-hidden">
-
-    <!--LISTING ONE-->
-    <div class="row border border-5 border-dark-subtle">
-        <div class="col-sm-3">
-            <img src="House Images/DefaultHouse.jpg" class="img-fluid" alt="...">
-        </div>
-        <div class="col-sm-9">
-            <div class="row">
-                <div class="col-8 col-sm-6 fw-bold fs-2">
-                    $1,000,000
-                </div>
-                <div class="col-4 col-sm-6 fs-2">
-                    1942 Cape Cod, Carthage Missouri, USA
-                </div>
+    <!--THIS ROW IS FOR THE TOP OF THE WEBPAGE, USED FOR THE REALTYYC BANNER AND MENU OPTIONS-->
+    <div class="row">
+        <div class="col-3">
+            <div class="header text-center">
+                <h1>RealtYYC</h1>
             </div>
-            <div class="row">
-                <div class="col-8 col-sm-6 text-left fs-4">
-                    Welcome to this delightful 3-bedroom, 2-bathroom residence situated in the heart of a serene and
-                    family-friendly neighborhood. This home boasts a perfect blend of modern comfort and classic charm,
-                    making it an ideal place for both newcomers and those looking to upgrade their living experience.
-                </div>
-                <div class="col-4 col-sm-6">
-                    <button type="button" class="btn btn-primary btn-lg align-middle">View Listing</button>
+        </div>
+        <div class="col-9">
+            <div class="filter-dropdown">
+                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    Filter
+                </a>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <form class="px-4 py-3">
+                        <select class="form-select" aria-label="Home Type">
+                            <option selected>Home Type</option>
+                            <option value="1">House</option>
+                            <option value="2">Condominium</option>
+                            <option value="3">Duplex</option>
+                            <option value="4">Bungalow</option>
+                            <option value="5">Bi-level</option>
+                        </select>
+                        <select class="form-select" aria-label="No. of Bedrooms">
+                            <option selected>No. of Bedrooms</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three or more</option>
+                        </select>
+                        <select class="form-select" aria-label="No. of Bathrooms">
+                            <option selected>No. of Bathrooms</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three or more</option>
+                        </select>
+                        <label for="MinimumPrice" class="form-label">Minimum Price</label>
+                        <input type="range" class="form-range" min="0" max="1000" id="MinimumPrice">
+                        <label for="MaximumPrice" class="form-label">Maximum Price</label>
+                        <input type="range" class="form-range" min="0" max="1000" id="MaximumPrice">
+                        <label for="MinimumSize" class="form-label">Minimum Size (sq. ft.)</label>
+                        <input type="range" class="form-range" min="0" max="1000" id="MinimumSize">
+                        <label for="MaximumSize" class="form-label">Maximum Size (sq. ft.)</label>
+                        <input type="range" class="form-range" min="0" max="1000" id="MaximumSize">
+                        <button type="submit" class="btn btn-primary">Search</button>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
 
-    <!--LISTING TWO-->
-    <div class="row border border-5 border-dark-subtle">
-        <div class="col-sm-3">
-            <img src="House Images/DefaultHouse.jpg" class="img-fluid" alt="...">
-        </div>
-        <div class="col-sm-9">
-            <div class="row">
-                <div class="col-8 col-sm-6 fw-bold fs-2">
-                    $1,000,000
+    <!--LISTING CONTAINER, EACH ROW IS A NEW LISTING TO SHOW OUR CLIENTS-->
+    <div class="container-fluid overflow-hidden">
+
+        <!--LISTING ONE-->
+        <div class="row border border-2 border-dark-subtle rounded-top rounded-bottom mb-1" id="row-overrides">
+            <div class="col-sm-3">
+                <img src="House Images/DefaultHouse.jpg" class="img-fluid" alt="...">
+            </div>
+            <div class="col-sm-9">
+                <div class="row">
+                    <div class="col-8 col-sm-6 fw-bold fs-2">
+                        Price: $1,000,000
+                    </div>
+                    <div class="col-4 col-sm-6 fw-bold fs-3">
+                        Location: 1942 Cape Cod, Carthage Missouri, USA
+                    </div>
                 </div>
-                <div class="col-4 col-sm-6">
-                    1942 Cape Cod, Carthage Missouri, USA
+                <div class="row">
+                    <div class="col fs-5">
+                        Welcome to this delightful 3-bedroom, 2-bathroom residence situated in the heart of a serene and
+                        family-friendly neighborhood. This home boasts a perfect blend of modern comfort and classic
+                        charm,
+                        making it an ideal place for both newcomers and those looking to upgrade their living
+                        experience.
+                        Welcome to this delightful 3-bedroom, 2-bathroom residence situated in the heart of a serene and
+                        family-friendly neighborhood. This home boasts a perfect blend of modern comfort and classic
+                        charm,
+                        making it an ideal place for both newcomers and those looking to upgrade their living
+                        experience.
+                    </div>
+                </div>
+                <div class="row">
+                    <button type="button" class="btn btn-primary">View Listing</button>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-8 col-sm-6 text-left">
-                    Welcome to this delightful 3-bedroom, 2-bathroom residence situated in the heart of a serene and
-                    family-friendly neighborhood. This home boasts a perfect blend of modern comfort and classic charm,
-                    making it an ideal place for both newcomers and those looking to upgrade their living experience.
+        </div>
+
+        <!--LISTING TWO-->
+        <div class="row border border-2 border-dark-subtle rounded-top rounded-bottom mb-1" id="row-overrides">
+            <div class="col-sm-3">
+                <img src="House Images/DefaultHouse.jpg" class="img-fluid" alt="...">
+            </div>
+            <div class="col-sm-9">
+                <div class="row">
+                    <div class="col-8 col-sm-6 fw-bold fs-2">
+                        Price: $1,000,000
+                    </div>
+                    <div class="col-4 col-sm-6 fw-bold fs-3">
+                        Location: 1942 Cape Cod, Carthage Missouri, USA
+                    </div>
                 </div>
-                <div class="col-4 col-sm-6">
-                    <button type="button" class="btn btn-primary btn-lg align-middle">View Listing</button>
+                <div class="row">
+                    <div class="col fs-5">
+                        Welcome to this delightful 3-bedroom, 2-bathroom residence situated in the heart of a serene and
+                        family-friendly neighborhood. This home boasts a perfect blend of modern comfort and classic
+                        charm,
+                        making it an ideal place for both newcomers and those looking to upgrade their living
+                        experience.
+                        Welcome to this delightful 3-bedroom, 2-bathroom residence situated in the heart of a serene and
+                        family-friendly neighborhood. This home boasts a perfect blend of modern comfort and classic
+                        charm,
+                        making it an ideal place for both newcomers and those looking to upgrade their living
+                        experience.
+                    </div>
+                </div>
+                <div class="row">
+                    <button type="button" class="btn btn-primary">View Listing</button>
+                </div>
+            </div>
+        </div>
+
+        <!--LISTING THREE-->
+        <div class="row border border-2 border-dark-subtle rounded-top rounded-bottom mb-1" id="row-overrides">
+            <div class="col-sm-3">
+                <img src="House Images/DefaultHouse.jpg" class="img-fluid" alt="...">
+            </div>
+            <div class="col-sm-9">
+                <div class="row">
+                    <div class="col-8 col-sm-6 fw-bold fs-2">
+                        Price: $1,000,000
+                    </div>
+                    <div class="col-4 col-sm-6 fw-bold fs-3">
+                        Location: 1942 Cape Cod, Carthage Missouri, USA
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col fs-5">
+                        Welcome to this delightful 3-bedroom, 2-bathroom residence situated in the heart of a serene and
+                        family-friendly neighborhood. This home boasts a perfect blend of modern comfort and classic
+                        charm,
+                        making it an ideal place for both newcomers and those looking to upgrade their living
+                        experience.
+                        Welcome to this delightful 3-bedroom, 2-bathroom residence situated in the heart of a serene and
+                        family-friendly neighborhood. This home boasts a perfect blend of modern comfort and classic
+                        charm,
+                        making it an ideal place for both newcomers and those looking to upgrade their living
+                        experience.
+                    </div>
+                </div>
+                <div class="row">
+                    <button type="button" class="btn btn-primary">View Listing</button>
+                </div>
+            </div>
+        </div>
+
+        <!--LISTING FOUR-->
+        <div class="row border border-2 border-dark-subtle rounded-top rounded-bottom mb-1" id="row-overrides">
+            <div class="col-sm-3">
+                <img src="House Images/DefaultHouse.jpg" class="img-fluid" alt="...">
+            </div>
+            <div class="col-sm-9">
+                <div class="row">
+                    <div class="col-8 col-sm-6 fw-bold fs-2">
+                        Price: $1,000,000
+                    </div>
+                    <div class="col-4 col-sm-6 fw-bold fs-3">
+                        Location: 1942 Cape Cod, Carthage Missouri, USA
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col fs-5">
+                        Welcome to this delightful 3-bedroom, 2-bathroom residence situated in the heart of a serene and
+                        family-friendly neighborhood. This home boasts a perfect blend of modern comfort and classic
+                        charm,
+                        making it an ideal place for both newcomers and those looking to upgrade their living
+                        experience.
+                        Welcome to this delightful 3-bedroom, 2-bathroom residence situated in the heart of a serene and
+                        family-friendly neighborhood. This home boasts a perfect blend of modern comfort and classic
+                        charm,
+                        making it an ideal place for both newcomers and those looking to upgrade their living
+                        experience.
+                    </div>
+                </div>
+                <div class="row">
+                    <button type="button" class="btn btn-primary">View Listing</button>
+                </div>
+            </div>
+        </div>
+
+        <!--LISTING FIVE-->
+        <div class="row border border-2 border-dark-subtle rounded-top rounded-bottom mb-1" id="row-overrides">
+            <div class="col-sm-3">
+                <img src="House Images/DefaultHouse.jpg" class="img-fluid" alt="...">
+            </div>
+            <div class="col-sm-9">
+                <div class="row">
+                    <div class="col-8 col-sm-6 fw-bold fs-2">
+                        Price: $1,000,000
+                    </div>
+                    <div class="col-4 col-sm-6 fw-bold fs-3">
+                        Location: 1942 Cape Cod, Carthage Missouri, USA
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col fs-5">
+                        Welcome to this delightful 3-bedroom, 2-bathroom residence situated in the heart of a serene and
+                        family-friendly neighborhood. This home boasts a perfect blend of modern comfort and classic
+                        charm,
+                        making it an ideal place for both newcomers and those looking to upgrade their living
+                        experience.
+                        Welcome to this delightful 3-bedroom, 2-bathroom residence situated in the heart of a serene and
+                        family-friendly neighborhood. This home boasts a perfect blend of modern comfort and classic
+                        charm,
+                        making it an ideal place for both newcomers and those looking to upgrade their living
+                        experience.
+                    </div>
+                </div>
+                <div class="row">
+                    <button type="button" class="btn btn-primary">View Listing</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <!--LISTING THREE-->
-    <div class="row border border-5 border-dark-subtle">
-        <div class="col-sm-3">
-            <img src="House Images/DefaultHouse.jpg" class="img-fluid" alt="...">
-        </div>
-        <div class="col-sm-9">
-            <div class="row">
-                <div class="col-8 col-sm-6 fw-bold fs-2">
-                    $1,000,000
-                </div>
-                <div class="col-4 col-sm-6">
-                    1942 Cape Cod, Carthage Missouri, USA
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-8 col-sm-6 text-left">
-                    Welcome to this delightful 3-bedroom, 2-bathroom residence situated in the heart of a serene and
-                    family-friendly neighborhood. This home boasts a perfect blend of modern comfort and classic charm,
-                    making it an ideal place for both newcomers and those looking to upgrade their living experience.
-                </div>
-                <div class="col-4 col-sm-6">
-                    <button type="button" class="btn btn-primary btn-lg align-middle">View Listing</button>
-                </div>
-            </div>
-        </div>
-    </div>
+</body>
 
-    <!--LISTING FOUR-->
-    <div class="row border border-5 border-dark-subtle">
-        <div class="col-sm-3">
-            <img src="House Images/DefaultHouse.jpg" class="img-fluid" alt="...">
-        </div>
-        <div class="col-sm-9">
-            <div class="row">
-                <div class="col-8 col-sm-6 fw-bold fs-2">
-                    $1,000,000
-                </div>
-                <div class="col-4 col-sm-6">
-                    1942 Cape Cod, Carthage Missouri, USA
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-8 col-sm-6 text-left">
-                    Welcome to this delightful 3-bedroom, 2-bathroom residence situated in the heart of a serene and
-                    family-friendly neighborhood. This home boasts a perfect blend of modern comfort and classic charm,
-                    making it an ideal place for both newcomers and those looking to upgrade their living experience.
-                </div>
-                <div class="col-4 col-sm-6">
-                    <button type="button" class="btn btn-primary btn-lg align-middle">View Listing</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!--LISTING FIVE-->
-    <div class="row border border-5 border-dark-subtle">
-        <div class="col-sm-3">
-            <img src="House Images/DefaultHouse.jpg" class="img-fluid" alt="...">
-        </div>
-        <div class="col-sm-9">
-            <div class="row">
-                <div class="col-8 col-sm-6 fw-bold fs-2">
-                    $1,000,000
-                </div>
-                <div class="col-4 col-sm-6">
-                    1942 Cape Cod, Carthage Missouri, USA
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-8 col-sm-6 text-left">
-                    Welcome to this delightful 3-bedroom, 2-bathroom residence situated in the heart of a serene and
-                    family-friendly neighborhood. This home boasts a perfect blend of modern comfort and classic charm,
-                    making it an ideal place for both newcomers and those looking to upgrade their living experience.
-                </div>
-                <div class="col-4 col-sm-6">
-                    <button type="button" class="btn btn-primary btn-lg align-middle">View Listing</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 </html>
