@@ -183,6 +183,7 @@
     </div>
 
     <script type="text/javascript">
+        const formatter = new Intl.NumberFormat('en-US', {style: 'currency',currency: 'CAD'});
         for (let index = 1; index < 6; index++) {
             var ran = Math.floor(Math.random() * 10);
             var listing = getRandomListing(ran);
@@ -191,7 +192,7 @@
                 listing = getRandomListing(ran);
             }
             document.getElementById("listing-" + index + "-image").src = listing.image;
-            document.getElementById("listing-" + index + "-price").innerHTML = "$" + listing.price;
+            document.getElementById("listing-" + index + "-price").innerHTML = formatter.format(listing.price);
             document.getElementById("listing-" + index + "-desc").innerHTML = listing.description;
             document.getElementById("listing-" + index + "-location").innerHTML = listing.location;
             setListed(ran);
