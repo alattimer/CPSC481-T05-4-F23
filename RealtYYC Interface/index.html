@@ -248,13 +248,16 @@
 
         function loadMoreListings() {
 
-            //create five new listing blocks
+            //LOAD THE REMAINING FIVE LISTINGS
             for (let int = 6; int < 11; int++) {
 
+                //TRY AND GET A LISTING
                 var listing = getUnlistedListing();
 
+                //IF NO LISTING RETURNED, DONT BOTHER
                 if (typeof listing !== 'undefined') {
 
+                    //CREATE OUTER DIV
                     const newDiv = document.createElement("div");
                     newDiv.setAttribute("class", "row border border-2 border-dark-subtle rounded-top rounded-bottom mb-1 row-overrides");
                     newDiv.setAttribute("id", "listing" + int);
@@ -262,66 +265,77 @@
 
                     document.getElementById("listings-container").append(newDiv);
 
+                    //CREATE OUTTER IMG CONTAINER
                     const imgDiv = document.createElement("div");
                     imgDiv.setAttribute("class", "col-sm-3");
                     imgDiv.setAttribute("id", "listing" + int + "-img-div");
 
                     document.getElementById("listing" + int).append(imgDiv);
 
+                    //CREATE THE IMG ELEMENT
                     const img = document.createElement("img");
                     img.setAttribute("class", "img-fluid img-thumbnail");
                     img.setAttribute("id", "listing-" + int + "-image");
 
                     document.getElementById("listing" + int + "-img-div").append(img);
 
+                    //CREATE THE LISTING INFO DIV
                     const listDiv = document.createElement("div");
                     listDiv.setAttribute("class", "col-sm-9");
                     listDiv.setAttribute("id", "listing-info-" + int);
 
                     document.getElementById("listing" + int).append(listDiv);
 
+                    //CREATE THE PRICE AND LOCATION DIVS CONTAINER
                     const priceLocDiv = document.createElement("div");
                     priceLocDiv.setAttribute("class", "row");
                     priceLocDiv.setAttribute("id", "listing-" + int + "-priceLoc");
 
                     document.getElementById("listing-info-" + int).append(priceLocDiv);
 
+                    //CREATE PRICE DIV
                     const priceDiv = document.createElement("div");
                     priceDiv.setAttribute("class", "col-sm-3 fw-bold fs-2");
                     priceDiv.setAttribute("id", "listing-" + int + "-price");
 
                     document.getElementById("listing-" + int + "-priceLoc").append(priceDiv);
 
+                    //CREAT LOCATION DIV
                     const locDiv = document.createElement("div");
                     locDiv.setAttribute("class", "col-sm-7 fw-bold fs-3");
                     locDiv.setAttribute("id", "listing-" + int + "-location");
 
                     document.getElementById("listing-" + int + "-priceLoc").append(locDiv);
 
+                    //CREATE THE DESCRIPTION CONTAINER
                     const descDiv = document.createElement("div");
                     descDiv.setAttribute("class", "row");
                     descDiv.setAttribute("id", "listing-" + int + "-dec");
 
                     document.getElementById("listing-info-" + int).append(descDiv);
 
+                    //CREATE THE DESCRIPTION DIV
                     const descInfoDiv = document.createElement("div");
                     descInfoDiv.setAttribute("class", "col fs-3");
                     descInfoDiv.setAttribute("id", "listing-" + int + "-desc");
 
                     document.getElementById("listing-" + int + "-dec").append(descInfoDiv);
 
+                    //CREATE THE BUTTON CONTAINER
                     const buttonDiv = document.createElement("div");
                     buttonDiv.setAttribute("class", "row");
                     buttonDiv.setAttribute("id", "listing-" + int + "-btn");
 
                     document.getElementById("listing-info-" + int).append(buttonDiv);
 
+                    //CREATE THE BUTTON
                     const viewButton = document.createElement("BUTTON");
                     viewButton.setAttribute("class", "btn btn-primary");
                     viewButton.innerHTML = "View Listing";
 
                     document.getElementById("listing-" + int + "-btn").append(viewButton);
 
+                    //FILL THE APPROPIATE INFORMATION INTO THE DIVS
                     document.getElementById("listing-" + int + "-image").src = listing.image;
                     document.getElementById("listing-" + int + "-price").innerHTML = formatter.format(listing.price);
                     document.getElementById("listing-" + int + "-desc").innerHTML = listing.description;
