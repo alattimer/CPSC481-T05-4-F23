@@ -18,54 +18,61 @@
 
     <!--THIS ROW IS FOR THE TOP OF THE WEBPAGE, USED FOR THE REALTYYC BANNER AND MENU OPTIONS-->
 
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-3">
+    <nav class="navbar navbar-expand-sm">
+        <div class="container-fluid">
+
+            <a class="navbar-brand" href="#">
                 <img src="House Images/logo.png" class="img-fluid" alt="...">
-            </div>
-            <div class="col-9">
-                <div class="filter-dropdown">
-                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                        Filter
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <form class="px-4 py-3">
-                            <select class="form-select" aria-label="Home Type">
-                                <option selected>Home Type</option>
-                                <option value="1">House</option>
-                                <option value="2">Condominium</option>
-                                <option value="3">Duplex</option>
-                                <option value="4">Bungalow</option>
-                                <option value="5">Bi-level</option>
-                            </select>
-                            <select class="form-select" aria-label="No. of Bedrooms">
-                                <option selected>No. of Bedrooms</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three or more</option>
-                            </select>
-                            <select class="form-select" aria-label="No. of Bathrooms">
-                                <option selected>No. of Bathrooms</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three or more</option>
-                            </select>
-                            <label for="MinimumPrice" class="form-label">Minimum Price</label>
-                            <input type="range" class="form-range" min="0" max="1000" id="MinimumPrice">
-                            <label for="MaximumPrice" class="form-label">Maximum Price</label>
-                            <input type="range" class="form-range" min="0" max="1000" id="MaximumPrice">
-                            <label for="MinimumSize" class="form-label">Minimum Size (sq. ft.)</label>
-                            <input type="range" class="form-range" min="0" max="1000" id="MinimumSize">
-                            <label for="MaximumSize" class="form-label">Maximum Size (sq. ft.)</label>
-                            <input type="range" class="form-range" min="0" max="1000" id="MaximumSize">
-                            <button type="submit" class="btn btn-primary">Search</button>
-                        </form>
-                    </div>
+            </a>
+
+            <form class="d-flex" role="search">
+                <input type="text" placeholder="Search By Address...">
+                <button class="btn btn-secondary" type="button">Search</button>
+            </form>
+
+            <form class="container-fluid">
+                <button class="btn btn-secondary" type="button">How To List</button>
+                <button class="btn btn-secondary" type="button">Current Realtors</button>
+                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    Filter
+                </a>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <form class="px-4 py-3">
+                        <select class="form-select" aria-label="Home Type">
+                            <option selected>Home Type</option>
+                            <option value="1">House</option>
+                            <option value="2">Condominium</option>
+                            <option value="3">Duplex</option>
+                            <option value="4">Bungalow</option>
+                            <option value="5">Bi-level</option>
+                        </select>
+                        <select class="form-select" aria-label="No. of Bedrooms">
+                            <option selected>No. of Bedrooms</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three or more</option>
+                        </select>
+                        <select class="form-select" aria-label="No. of Bathrooms">
+                            <option selected>No. of Bathrooms</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three or more</option>
+                        </select>
+                        <label for="MinimumPrice" class="form-label">Minimum Price</label>
+                        <input type="range" class="form-range" min="0" max="1000" id="MinimumPrice">
+                        <label for="MaximumPrice" class="form-label">Maximum Price</label>
+                        <input type="range" class="form-range" min="0" max="1000" id="MaximumPrice">
+                        <label for="MinimumSize" class="form-label">Minimum Size (sq. ft.)</label>
+                        <input type="range" class="form-range" min="0" max="1000" id="MinimumSize">
+                        <label for="MaximumSize" class="form-label">Maximum Size (sq. ft.)</label>
+                        <input type="range" class="form-range" min="0" max="1000" id="MaximumSize">
+                        <button type="submit" class="btn btn-primary">Search</button>
+                    </form>
                 </div>
-            </div>
+            </form>
         </div>
-    </div>
+    </nav>
 
     <!--LISTING CONTAINER, EACH ROW IS A NEW LISTING TO SHOW OUR CLIENTS-->
     <div class="container-fluid overflow-hidden">
@@ -79,7 +86,7 @@
                 <div class="row">
                     <div class="col-sm-3 fw-bold fs-2" id="listing-1-price">
                     </div>
-                    <div class="col-sm-6 fw-bold fs-3" id="listing-1-location">
+                    <div class="col-sm-7 fw-bold fs-3 text-center" id="listing-1-location">
                     </div>
                 </div>
                 <div class="row">
@@ -101,7 +108,7 @@
                 <div class="row">
                     <div class="col-sm-3 fw-bold fs-2" id="listing-2-price">
                     </div>
-                    <div class="col-sm-6 fw-bold fs-3" id="listing-2-location">
+                    <div class="col-sm-7 fw-bold fs-3 text-center" id="listing-2-location">
                     </div>
                 </div>
                 <div class="row">
@@ -123,7 +130,7 @@
                 <div class="row">
                     <div class="col-sm-3 fw-bold fs-2" id="listing-3-price">
                     </div>
-                    <div class="col-sm-6 fw-bold fs-3" id="listing-3-location">
+                    <div class="col-sm-7 fw-bold fs-3 text-center" id="listing-3-location">
                     </div>
                 </div>
                 <div class="row">
@@ -145,7 +152,7 @@
                 <div class="row">
                     <div class="col-sm-3 fw-bold fs-2" id="listing-4-price">
                     </div>
-                    <div class="col-sm-6 fw-bold fs-3" id="listing-4-location">
+                    <div class="col-sm-7 fw-bold fs-3 text-center" id="listing-4-location">
                     </div>
                 </div>
                 <div class="row">
@@ -167,7 +174,7 @@
                 <div class="row">
                     <div class="col-sm-3 fw-bold fs-2" id="listing-5-price">
                     </div>
-                    <div class="col-sm-6 fw-bold fs-3" id="listing-5-location">
+                    <div class="col-sm-7 fw-bold fs-3 text-center" id="listing-5-location">
                     </div>
                 </div>
                 <div class="row">
@@ -182,8 +189,10 @@
 
     </div>
 
+
+
     <script type="text/javascript">
-        const formatter = new Intl.NumberFormat('en-US', {style: 'currency',currency: 'CAD'});
+        const formatter = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'CAD' });
         for (let index = 1; index < 6; index++) {
             var ran = Math.floor(Math.random() * 10);
             var listing = getRandomListing(ran);
