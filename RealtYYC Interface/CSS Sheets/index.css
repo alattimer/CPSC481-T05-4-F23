@@ -3,8 +3,8 @@
     background-image: url("background.png");
 }
 
-#row-overrides{
-    background-color: lightcyan;
+.row-overrides{ 
+    background-color: lightcyan !important;
 }
 
 ul {

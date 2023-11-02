@@ -17,3 +17,16 @@ function getRandomListing(ran) {
 function setListed(ran) {
     listings[ran].isListed = true;
 }
+
+function getListingsSize() {
+    return listings.length;
+}
+
+function getUnlistedListing() {
+    for (let index = 0; index < listings.length; index++) {
+        if(listings[index].isListed == false){
+            listings[index].isListed = true;
+            return listings[index];
+        }
+    }
+}
