@@ -32,7 +32,7 @@
                 <button class="btn btn-secondary" type="button">Current Realtors</button>
                 <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                     data-bs-toggle="dropdown" aria-expanded="false">
-                    Filter
+                    Filter Search for a Home
                 </a>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                     <form class="px-4 py-3">
@@ -45,17 +45,25 @@
                             <option value="4">Bungalow</option>
                             <option value="5">Bi-level</option>
                         </select>
-                        <select class="form-select" aria-label="No. of Bedrooms">
+                        <select class="form-select" aria-label="Minimum No. of Bedrooms">
                             <option selected>No. of Bedrooms</option>
                             <option value="1">One</option>
                             <option value="2">Two</option>
-                            <option value="3">Three or more</option>
+                            <option value="3">Three</option>
+                            <option value="4">Four or more</option>
                         </select>
-                        <select class="form-select" aria-label="No. of Bathrooms">
+                        <select class="form-select" aria-label="Minimum No. of Bathrooms">
                             <option selected>No. of Bathrooms</option>
                             <option value="1">One</option>
                             <option value="2">Two</option>
-                            <option value="3">Three or more</option>
+                            <option value="3">Three</option>
+                            <option value="4">Four or more</option>
+                        </select>
+                        <select class="form-select" aria-label="Minimum. of Garages">
+                            <option selected>No. of Bathrooms</option>
+                            <option value="1">Zero</option>
+                            <option value="2">One</option>
+                            <option value="3">Two or more</option>
                         </select>
                         <label for="MinimumPrice" class="form-label">Minimum Price: <span id="minPrice"></span> $</label>
                         <input type="range" class="form-range" min="100000" max="1000000" id="MinimumPrice">
@@ -65,6 +73,10 @@
                         <input type="range" class="form-range" min="1000" max="5000" id="MinimumSize">
                         <label for="MaximumSize" class="form-label">Maximum Size: <span id="maxSize"></span> sq. ft.</label>
                         <input type="range" class="form-range" min="1000" max="5000" id="MaximumSize">
+                        <label for="backyard" class="form-label">Backyard?</label>
+                        <input class = "form-check-input" type = "checkbox" id = "backyard" name="backyard" value="good"> 
+                        <label for="basement" class="form-label">Finished Basement?</label>
+                        <input class = "form-check-input" type = "checkbox" id = "basement" name="basement" value="good">
                         <button type="submit" class="btn btn-primary">Search</button>
 
                         <script>
