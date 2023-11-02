@@ -1,4 +1,5 @@
 
+
 .SelectableLetter {
     padding-right: 5px;
     float: left;
@@ -8,5 +9,6 @@
   .SelectableLetterOutline {
     position: absolute;
     left: 37%;
+    font-weight: bold;
   }
   
