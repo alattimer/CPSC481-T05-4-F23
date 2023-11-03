@@ -34,10 +34,10 @@
                     data-bs-toggle="dropdown" aria-expanded="false">
                     Filter Search for a Home
                 </a>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" style="width:700px;">
                     <form class="px-4 py-3">
-                        <p><b>Advanced Search Filters:</p>
-                        <select class="form-select" aria-label="Home Type">
+                        <p style="margin-left: 20px;"><b>Advanced Search Filters:</p>
+                        <select style="margin-left: 20px; width: 60%;" class="form-select" aria-label="Home Type">
                             <option selected>Home Type</option>
                             <option value="1">House</option>
                             <option value="2">Condominium</option>
@@ -45,43 +45,49 @@
                             <option value="4">Bungalow</option>
                             <option value="5">Bi-level</option>
                         </select>
-                        <select class="form-select" aria-label="Minimum No. of Bedrooms">
+                        <select style="margin-left: 20px; width: 60%;" class="form-select" aria-label="Minimum No. of Bedrooms">
                             <option selected>No. of Bedrooms</option>
                             <option value="1">One</option>
                             <option value="2">Two</option>
                             <option value="3">Three</option>
                             <option value="4">Four or more</option>
                         </select>
-                        <select class="form-select" aria-label="Minimum No. of Bathrooms">
+                        <select style="margin-left: 20px; width: 60%;" class="form-select" aria-label="Minimum No. of Bathrooms">
                             <option selected>No. of Bathrooms</option>
                             <option value="1">One</option>
                             <option value="2">Two</option>
                             <option value="3">Three</option>
                             <option value="4">Four or more</option>
                         </select>
-                        <select class="form-select" aria-label="Minimum. of Garages">
-                            <option selected>No. of Bathrooms</option>
+                        <select style="margin-left: 20px; width: 60%;" class="form-select" aria-label="Minimum. of Garages">
+                            <option selected>No. of Garages</option>
                             <option value="1">Zero</option>
                             <option value="2">One</option>
                             <option value="3">Two or more</option>
                         </select>
-                        <label for="MinimumPrice" class="form-label">Minimum Price: <span id="minPrice"></span>
+                        <label style="margin-left: 20px; margin-top: 10px;" for="MinimumPrice" class="form-label">Minimum Price: <span id="minPrice"></span>
                             $</label>
                         <input type="range" class="form-range" min="100000" max="1000000" id="MinimumPrice">
-                        <label for="MaximumPrice" class="form-label">Maximum Price: <span id="maxPrice"></span>
+                        <label style="margin-left: 20px;" for="MaximumPrice" class="form-label">Maximum Price: <span id="maxPrice"></span>
                             $</label>
                         <input type="range" class="form-range" min="100000" max="1000000" id="MaximumPrice">
-                        <label for="MinimumSize" class="form-label">Minimum Size: <span id="minSize"></span> sq.
+                        <label style="margin-left: 20px;" for="MinimumSize" class="form-label">Minimum Size: <span id="minSize"></span> sq.
                             ft.</label>
                         <input type="range" class="form-range" min="1000" max="5000" id="MinimumSize">
-                        <label for="MaximumSize" class="form-label">Maximum Size: <span id="maxSize"></span> sq.
+                        <label style="margin-left: 20px;" for="MaximumSize" class="form-label">Maximum Size: <span id="maxSize"></span> sq.
                             ft.</label>
                         <input type="range" class="form-range" min="1000" max="5000" id="MaximumSize">
-                        <label for="backyard" class="form-label">Backyard?</label>
-                        <input class="form-check-input" type="checkbox" id="backyard" name="backyard" value="good">
-                        <label for="basement" class="form-label">Finished Basement?</label>
-                        <input class="form-check-input" type="checkbox" id="basement" name="basement" value="good">
-                        <button type="submit" class="btn btn-primary">Search</button>
+                        <label style="margin-left: 20px;" for="backyard" class="form-label">Backyard?</label>
+                        <input class="form-check-input" type="checkbox" id="backyard" name="backyard" value="good" checked>
+                        <label style="margin-left: 20px;"for="basement" class="form-label">Finished Basement?</label>
+                        <input class="form-check-input" type="checkbox" id="basement" name="basement" value="good" checked>
+                        <label style="margin-left: 20px;" for="airCond" class="form-label">Air Conditioning?</label>
+                        <input class="form-check-input" type="checkbox" id="airCond" name="airCond" value="good" checked>
+                        <label style="margin-left: 20px;" for="fireplace" class="form-label">Fireplace?</label>
+                        <input class="form-check-input" type="checkbox" id="fireplace" name="fireplace" value="good" checked>
+                        <label style="margin-left: 20px;" for="attachGarage" class="form-label">Attached Garages?</label>
+                        <input class="form-check-input" type="checkbox" id="attachGarage" name="attachGarage" value="good" checked>
+                        <button style="margin-left:auto; margin-right:auto; display:block; width:40%;" type="submit" class="btn btn-primary">Search</button>
 
                         <script>
                             var minPriceSlider = document.getElementById("MinimumPrice");
