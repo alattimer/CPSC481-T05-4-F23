@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!--BOOTSTRAP CDN-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!--END OF BOOTSTRAP CDN-->
+    <script type="text/javascript" src="indexScripts.js"></script>
+    <link rel="stylesheet" href="CSS Sheets/index.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body id="body-overrides">
+
+    <!--THIS ROW IS FOR THE TOP OF THE WEBPAGE, USED FOR THE REALTYYC BANNER AND MENU OPTIONS-->
+    <nav class="navbar navbar-expand-sm">
+        <div class="container-fluid">
+
+            <a class="navbar-brand" href="#">
+                <img src="House Images/logo.png" class="img-fluid" alt="...">
+            </a>
+
+            <form class="container-fluid">
+                <button class="btn btn-secondary" type="button">Back To Listings</button>
+            </form>
+        </div>
+    </nav>
+
+    <div class="container-fluid" id="main-container">
+
+        <div class="row border border-2 border-dark-subtle rounded-top rounded-bottom mb-1 row-overrides">
+
+            <div class="row">
+
+                <div class="col-sm-3">
+                    <img src="House Images/DefaultHouse.jpg" class="img-fluid img-thumbnail" alt="..."
+                        id="listing-image">
+                </div>
+
+                <div class="col-sm-5">
+                    <div class="row fw-bold fs-2" id="listing-price">
+                        Price:
+                    </div>
+                    <div class="row fw-bold fs-2" id="listing-location">
+                        Location:
+                    </div>
+                </div>
+
+                <div class="col-sm-4 justify-content-middle">
+                    <div class="card mb-3" style="max-width: 540px;">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img src="House Images\Bella.jpg" class="img-fluid rounded-start" alt="...">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title">Associated Realtor</h5>
+                                    <p class="card-text">Your best investment opportunity. If you want to discuss about
+                                        this listing further, please contact me!</p>
+                                    <p class="card-text"><small class="text-body-secondary">Phone: 587-289-8545</small>
+                                    </p>
+                                    <p class="card-text"><small class="text-body-secondary">Email:
+                                            Bella@REALTYYC.ca</small></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div id="carousel" class="carousel slide col-sm-3">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="House Images/DefaultHouse.jpg" class="d-block w-100 img-thumbnail" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="House Images/DefaultHouse.jpg" class="d-block w-100 img-thumbnail" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="House Images/DefaultHouse.jpg" class="d-block w-100 img-thumbnail" alt="...">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+                <div class="col">
+                    <header class="text-center fw-bold fs-1">Interior Information</header>
+                    <div class="row fs-5 p-3" id="list-bedrooms">
+                        Bedrooms: 3
+                    </div>
+                    <div class="row fs-5 p-3" id="list-bathrooms">
+                        Bathrooms: 3
+                    </div>
+                    <div class="row fs-5 p-3" id="list-floors">
+                        Floors: Laminated
+                    </div>
+                    <div class="row fs-5 p-3" id="list-basement">
+                        Basement: Yes
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="col">
+                        <header class="text-center fw-bold fs-1">Exterior Information</header>
+                        <div class="row fs-5 p-3">
+                            Bedrooms: 3
+                        </div>
+                        <div class="row fs-5 p-3">
+                            Bathrooms: 3
+                        </div>
+                        <div class="row fs-5 p-3">
+                            Floors: Laminated
+                        </div>
+                        <div class="row fs-5 p-3">
+                            Basement: Yes
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <script>
+        const formatter = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'CAD' });
+        var listing = getListingByID(sessionStorage.getItem("id"));
+        document.getElementById("listing-image").src = listing.image;
+        document.getElementById("listing-location").innerHTML = listing.location;
+        document.getElementById("listing-price").innerHTML = "Price: " + formatter.format(listing.price);
+        document.getElementById("list-bedrooms").innerHTML = "Bedrooms: " + listing.noBedrooms;
+        document.getElementById("list-bathrooms").innerHTML = "Bathrooms: " + listing.noBathrooms;
+        document.getElementById("list-floors").innerHTML = "Floors: " + listing.floors;
+        document.getElementById("list-basement").innerHTML = "Basement: " + listing.basement;
+    </script>
+
+
+</body>
+
+</html>
