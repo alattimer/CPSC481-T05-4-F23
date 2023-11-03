@@ -1,14 +1,23 @@
 
 
 .SelectableLetter {
-    padding-right: 5px;
+    padding-right: 10px;
     float: left;
-    color: blueviolet;
+    color: #424f4d;
+    font-size: 20px;
+    text-decoration:underline;
   }
 
   .SelectableLetterOutline {
     position: absolute;
-    left: 37%;
+    left: 33%;
     font-weight: bold;
+  }
+
+  .SelectRealtor{
+    text-align: center;
+    color:rgb(136, 125, 125);
+    font-weight: bold;
+    font-size: 23px;
   }
   
