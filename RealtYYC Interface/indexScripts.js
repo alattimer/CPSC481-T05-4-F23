@@ -37,3 +37,34 @@ function getListingByID(id) {
     var list = listings.find((l) => l.listingID === parseInt(id));
     return list;
 }
+
+// Pseudo search value, could be changed to be more complexed
+const criteria = { price: { min: 700000, max: 900000 } };
+
+// Initialize search function to be called from index.html
+// I planned filterListings to be price filter, I am trying to add more features filter
+function filterListings(listings, criteria) { 
+    var filteredListings = [];
+    for (var i = 0; i < listings.length; i++) {
+        var isMatch = true;
+        for (var key in criteria) {
+            if (criteria.hasOwnProperty(key)) {
+                if (typeof criteria[key] === 'object' && criteria[key] !== null && 'min' in criteria[key] && 'max' in criteria[key]) {
+                    if (listings[i][key] < criteria[key].min || listings[i][key] > criteria[key].max) {
+                        isMatch = false;
+                        break;
+                    }
+                } else if (listings[i][key] !== criteria[key]) {
+                    isMatch = false;
+                    break;
+                }
+            }
+        }
+        if (isMatch) {
+            filteredListings.push(listings[i]);
+        }
+    }
+    return filteredListings;
+}
+
+const filteredListings = filterListings(listings, criteria);
