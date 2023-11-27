@@ -39,7 +39,15 @@ function getListingByID(id) {
 }
 
 // Pseudo search value, could be changed to be more complexed
-const criteria = { price: { min: 700000, max: 900000 } };
+const criteria = {
+    price: { min: 700000, max: 900000 },
+    homeType: 'Single Family',
+    noBedrooms: { min: 3 },
+    noBathrooms: { min: 2 },
+    noGarage: { min: 1 },
+    houseSize: { min: 1500, max: 2500 }
+};
+
 
 // Initialize search function to be called from index.html
 // I planned filterListings to be price filter, I am trying to add more features filter
