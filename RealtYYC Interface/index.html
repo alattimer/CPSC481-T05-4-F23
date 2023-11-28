@@ -91,7 +91,7 @@
                         <input class="form-check-input" type="checkbox" id="attachGarage" name="attachGarage" value="good" checked>
                         <label style="margin-left: 20px;" for="pool" class="form-label">Hot Tub/Pool?</label>
                         <input class="form-check-input" type="checkbox" id="pool" name="pool" value="good" checked>
-                        <button style="margin-left:auto; margin-right:auto; display:block; width:40%;" type="submit" class="btn btn-primary">Search</button>
+                        <button style="margin-left:auto; margin-right:auto; display:block; width:40%;" type="button" class="btn btn-primary" onclick="filterListings()">Search</button>
 
                         <script>
                             var minPriceSlider = document.getElementById("MinimumPrice");
@@ -138,6 +138,27 @@
                             //     houseSize: { min: parseInt(minSizeOutput.value), max: parseInt(maxSizeOutput.value) }
                             // };
                             // filterListings(listings, criteria);
+
+                            function onSubmitForm() {
+                                var bedrooms = document.getElementById('bedrooms').value;
+                                var bathrooms = document.getElementById('bathrooms').value;
+                                var garages = document.getElementById('garages').value;
+                                var minPrice = document.getElementById('minPrice').value;
+                                var maxPrice = document.getElementById('maxPrice').value;
+                                var minSize = document.getElementById('minSize').value;
+                                var maxSize = document.getElementById('maxSize').value;
+                            
+                                var criteria = {
+                                    noBedrooms: { min: parseInt(bedrooms) },
+                                    noBathrooms: { min: parseInt(bathrooms) },
+                                    noGarage: { min: parseInt(garages) },
+                                    price: { min: parseInt(minPrice), max: parseInt(maxPrice) },
+                                    houseSize: { min: parseInt(minSize), max: parseInt(maxSize) }
+                                };
+                            
+                                var filteredListings = filterListings(listings, criteria);
+                                updateListings(filteredListings);
+                            }
                         </script>
 
                     </form>
