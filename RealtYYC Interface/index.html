@@ -91,7 +91,7 @@
                         <input class="form-check-input" type="checkbox" id="attachGarage" name="attachGarage" value="good" checked>
                         <label style="margin-left: 20px;" for="pool" class="form-label">Hot Tub/Pool?</label>
                         <input class="form-check-input" type="checkbox" id="pool" name="pool" value="good" checked>
-                        <button style="margin-left:auto; margin-right:auto; display:block; width:40%;" type="button" class="btn btn-primary" onclick="filterListings()">Search</button>
+                        <button style="margin-left:auto; margin-right:auto; display:block; width:40%;" type="button" class="btn btn-primary" onclick="onSubmitForm()">Search</button>
 
                         <script>
                             var minPriceSlider = document.getElementById("MinimumPrice");
@@ -139,26 +139,71 @@
                             // };
                             // filterListings(listings, criteria);
 
-                            function onSubmitForm() {
-                                var bedrooms = document.getElementById('bedrooms').value;
-                                var bathrooms = document.getElementById('bathrooms').value;
-                                var garages = document.getElementById('garages').value;
-                                var minPrice = document.getElementById('minPrice').value;
-                                var maxPrice = document.getElementById('maxPrice').value;
-                                var minSize = document.getElementById('minSize').value;
-                                var maxSize = document.getElementById('maxSize').value;
+                            // function updateListings(filteredListings) {
+                            //     // Get the container element where the listings are displayed
+                            //     var listingsContainer = document.getElementById('listings-container');
+
+                            //     // Clear the container
+                            //     listingsContainer.innerHTML = '';
+
+                            //     // Add the filtered listings to the container
+                            //     filteredListings.forEach(function(listing) {
+                            //         // Create a new div for the listing
+                            //         var listingDiv = document.createElement('div');
+                            //         listingDiv.className = 'row border border-2 border-dark-subtle rounded-top rounded-bottom mb-1 row-overrides';
+
+                            //         // Add the listing details to the div
+                            //         listingDiv.innerHTML = `
+                            //             <div class="col-sm-3">
+                            //                 <img src="${listing.image}" class="img-fluid img-thumbnail" alt="..." id="listing-${listing.listingID}-image">
+                            //             </div>
+                            //             <div class="col-sm-9" id="listing${listing.listingID}">
+                            //                 <div class="row">
+                            //                     <div class="col-sm-3 fw-bold fs-2" id="listing-${listing.listingID}-price">
+                            //                         ${listing.price}
+                            //                     </div>
+                            //                     <div class="col-sm-7 fw-bold fs-3 text-center" id="listing-${listing.listingID}-location">
+                            //                         ${listing.location}
+                            //                     </div>
+                            //                 </div>
+                            //                 <div class="row">
+                            //                     <div class="col fs-3" id="listing-${listing.listingID}-desc">
+                            //                         ${listing.description}
+                            //                     </div>
+                            //                 </div>
+                            //                 <div class="row">
+                            //                     <button name="view-${listing.listingID}" type="button" class="btn btn-primary"
+                            //                         onclick='saveListing(document.getElementsByName("view-${listing.listingID}")[0].id)'>View Listing</button>
+                            //                 </div>
+                            //             </div>
+                            //         `;
+
+                            //         // Add the listing div to the container
+                            //         listingsContainer.appendChild(listingDiv);
+                            //     });
+                            // }
+
+
+                            // function onSubmitForm() {
+                            //     var bedrooms = document.getElementById('bedrooms').value;
+                            //     var bathrooms = document.getElementById('bathrooms').value;
+                            //     var garages = document.getElementById('garages').value;
+                            //     var minPrice = document.getElementById('minPrice').value;
+                            //     var maxPrice = document.getElementById('maxPrice').value;
+                            //     var minSize = document.getElementById('minSize').value;
+                            //     var maxSize = document.getElementById('maxSize').value;
                             
-                                var criteria = {
-                                    noBedrooms: { min: parseInt(bedrooms) },
-                                    noBathrooms: { min: parseInt(bathrooms) },
-                                    noGarage: { min: parseInt(garages) },
-                                    price: { min: parseInt(minPrice), max: parseInt(maxPrice) },
-                                    houseSize: { min: parseInt(minSize), max: parseInt(maxSize) }
-                                };
+                            //     var criteria = {
+                            //         noBedrooms: { min: parseInt(bedrooms) },
+                            //         noBathrooms: { min: parseInt(bathrooms) },
+                            //         noGarage: { min: parseInt(garages) },
+                            //         price: { min: parseInt(minPrice), max: parseInt(maxPrice) },
+                            //         houseSize: { min: parseInt(minSize), max: parseInt(maxSize) }
+                            //     };
                             
-                                var filteredListings = filterListings(listings, criteria);
-                                updateListings(filteredListings);
-                            }
+                            //     var filteredListings = filterListings(listings, criteria);
+                            //     updateListings(filteredListings);
+                            // }
                         </script>
 
                     </form>
@@ -421,6 +466,72 @@
                     break;
                 }
             }
+        }
+
+        function updateListings(filteredListings) {
+            // Get the container element where the listings are displayed
+            var listingsContainer = document.getElementById('listings-container');
+
+            // Clear the container
+            listingsContainer.innerHTML = '';
+
+            // Add the filtered listings to the container
+            filteredListings.forEach(function(listing) {
+                // Create a new div for the listing
+                var listingDiv = document.createElement('div');
+                listingDiv.className = 'row border border-2 border-dark-subtle rounded-top rounded-bottom mb-1 row-overrides';
+
+                // Add the listing details to the div
+                listingDiv.innerHTML = `
+                    <div class="col-sm-3">
+                        <img src="${listing.image}" class="img-fluid img-thumbnail" alt="..." id="listing-${listing.listingID}-image">
+                    </div>
+                    <div class="col-sm-9" id="listing${listing.listingID}">
+                        <div class="row">
+                            <div class="col-sm-3 fw-bold fs-2" id="listing-${listing.listingID}-price">
+                                ${listing.price}
+                            </div>
+                            <div class="col-sm-7 fw-bold fs-3 text-center" id="listing-${listing.listingID}-location">
+                                ${listing.location}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col fs-3" id="listing-${listing.listingID}-desc">
+                                ${listing.description}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <button name="view-${listing.listingID}" type="button" class="btn btn-primary"
+                                onclick='saveListing(document.getElementsByName("view-${listing.listingID}")[0].id)'>View Listing</button>
+                        </div>
+                    </div>
+                `;
+
+                // Add the listing div to the container
+                listingsContainer.appendChild(listingDiv);
+            });
+        }
+
+
+        function onSubmitForm() {
+            var bedrooms = document.getElementById('bedrooms').value;
+            var bathrooms = document.getElementById('bathrooms').value;
+            var garages = document.getElementById('garages').value;
+            var minPrice = document.getElementById('minPrice').value;
+            var maxPrice = document.getElementById('maxPrice').value;
+            var minSize = document.getElementById('minSize').value;
+            var maxSize = document.getElementById('maxSize').value;
+        
+            var criteria = {
+                noBedrooms: { min: parseInt(bedrooms) },
+                noBathrooms: { min: parseInt(bathrooms) },
+                noGarage: { min: parseInt(garages) },
+                price: { min: parseInt(minPrice), max: parseInt(maxPrice) },
+                houseSize: { min: parseInt(minSize), max: parseInt(maxSize) }
+            };
+        
+            var filteredListings = filterListings(listings, criteria);
+            updateListings(filteredListings);
         }
     </script>
 
