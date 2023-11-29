@@ -1,4 +1,8 @@
 /* All these styles are for a responsive landing page*/
+.listing-buffer {
+    margin-top: 30px;
+}
+
 #body-overrides {
     background-image: url("background.png");
 }
