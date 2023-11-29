@@ -139,7 +139,7 @@
         const formatter = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'CAD' });
         var listing = getListingByID(sessionStorage.getItem("id"));
         document.getElementById("listing-image").src = listing.image;
-        document.getElementById("listing-location").innerHTML = listing.location;
+        document.getElementById("listing-location").innerHTML = "Location: " + listing.location;
         document.getElementById("listing-price").innerHTML = "Price: " + formatter.format(listing.price);
         document.getElementById("list-bedrooms").innerHTML = "Bedrooms: " + listing.noBedrooms;
         document.getElementById("list-bathrooms").innerHTML = "Bathrooms: " + listing.noBathrooms;

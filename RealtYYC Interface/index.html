@@ -323,7 +323,7 @@
                     <div class="col fs-3" id="listing-5-desc">
                     </div>
                 </div>
-                <div class="row">
+                <div class="row flex-grow-1">
                     <button name="view-5" type="button" class="btn btn-primary"
                         onclick='saveListing(document.getElementsByName("view-5")[0].id)'>View Listing</button>
                 </div>
@@ -340,7 +340,8 @@
 
     <script type="text/javascript">
         const formatter = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'CAD' });
-
+        let loc = "Location: ";
+        let price = "Price: "
         for (let index = 1; index < 6; index++) {
             var ran = Math.floor(Math.random() * 10);
             var listing = getRandomListing(ran);
@@ -349,9 +350,9 @@
                 listing = getRandomListing(ran);
             }
             document.getElementById("listing-" + index + "-image").src = listing.image;
-            document.getElementById("listing-" + index + "-price").innerHTML = formatter.format(listing.price);
-            document.getElementById("listing-" + index + "-desc").innerHTML = listing.description;
-            document.getElementById("listing-" + index + "-location").innerHTML = listing.location;
+            document.getElementById("listing-" + index + "-price").innerHTML = price.concat(formatter.format(listing.price));
+            document.getElementById("listing-" + index + "-desc").innerHTML = listing.longDesc;
+            document.getElementById("listing-" + index + "-location").innerHTML = loc.concat(listing.location);
             document.getElementsByName("view-" + index)[0].setAttribute("id", listing.listingID);
             setListed(ran);
         }
@@ -455,9 +456,9 @@
 
                     //FILL THE APPROPIATE INFORMATION INTO THE DIVS
                     document.getElementById("listing-" + int + "-image").src = listing.image;
-                    document.getElementById("listing-" + int + "-price").innerHTML = formatter.format(listing.price);
-                    document.getElementById("listing-" + int + "-desc").innerHTML = listing.description;
-                    document.getElementById("listing-" + int + "-location").innerHTML = listing.location;
+                    document.getElementById("listing-" + int + "-price").innerHTML = price.concat(formatter.format(listing.price));
+                    document.getElementById("listing-" + int + "-desc").innerHTML = listing.longDesc;
+                    document.getElementById("listing-" + int + "-location").innerHTML = loc.concat(listing.location);
 
                 } else {
                     document.getElementById("load-more").innerHTML = "Out Of Listings!";
