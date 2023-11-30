@@ -37,29 +37,29 @@
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" style="width:700px;">
                     <form class="px-4 py-3">
                         <p style="margin-left: 20px;"><b>Advanced Search Filters:</p>
-                        <select style="margin-left: 20px; width: 60%;" class="form-select" aria-label="Home Type">
+                        <select style="margin-left: 20px; width: 60%;" id="type" class="form-select" aria-label="Home Type">
                             <option selected>Home Type</option>
-                            <option value="1">House</option>
-                            <option value="2">Condominium</option>
-                            <option value="3">Duplex</option>
-                            <option value="4">Bungalow</option>
-                            <option value="5">Bi-level</option>
+                            <option>House</option>
+                            <option>Condominium</option>
+                            <option>Duplex</option>
+                            <option>Bungalow</option>
+                            <option>Bi-level</option>
                         </select>
-                        <select style="margin-left: 20px; width: 60%;" class="form-select" aria-label="Minimum No. of Bedrooms">
+                        <select style="margin-left: 20px; width: 60%;" id="beds" class="form-select" aria-label="Minimum No. of Bedrooms">
                             <option selected>No. of Bedrooms</option>
                             <option value="1">One</option>
                             <option value="2">Two</option>
                             <option value="3">Three</option>
                             <option value="4">Four or more</option>
                         </select>
-                        <select style="margin-left: 20px; width: 60%;" class="form-select" aria-label="Minimum No. of Bathrooms">
+                        <select style="margin-left: 20px; width: 60%;" id="baths" class="form-select" aria-label="Minimum No. of Bathrooms">
                             <option selected>No. of Bathrooms</option>
                             <option value="1">One</option>
                             <option value="2">Two</option>
                             <option value="3">Three</option>
                             <option value="4">Four or more</option>
                         </select>
-                        <select style="margin-left: 20px; width: 60%;" class="form-select" aria-label="Minimum. of Garages">
+                        <select style="margin-left: 20px; width: 60%;" id="garages" class="form-select" aria-label="Minimum. of Garages">
                             <option selected>No. of Garages</option>
                             <option value="1">Zero</option>
                             <option value="2">One</option>
@@ -91,7 +91,7 @@
                         <input class="form-check-input" type="checkbox" id="attachGarage" name="attachGarage" value="good" checked>
                         <label style="margin-left: 20px;" for="pool" class="form-label">Hot Tub/Pool?</label>
                         <input class="form-check-input" type="checkbox" id="pool" name="pool" value="good" checked>
-                        <button style="margin-left:auto; margin-right:auto; display:block; width:40%;" type="button" class="btn btn-primary" onclick="onSubmitForm()">Search</button>
+                        <button style="margin-left:auto; margin-right:auto; display:block; width:40%;" type="button" id="filter" class="btn btn-primary">Search</button>
 
                         <script>
                             var minPriceSlider = document.getElementById("MinimumPrice");
@@ -123,87 +123,6 @@
                             maxSizeSlider.oninput = function () {
                                 maxSizeOutput.innerHTML = this.value;
                             }
-
-                            // Test (not working yet)
-                            // const criteria = {
-                            //     price: { min: minPriceSlider, max: maxPriceSlider },
-                            //     // homeType: 'Single Family',
-                            //     // noBedrooms: { min: 3 },
-                            //     // noBathrooms: { min: 2 },
-                            //     // noGarage: { min: 1 },
-                            //     houseSize: { min: minSizeSlider, max: maxSizeSlider }
-                            // };
-                            // const criteria = {
-                            //     price: { min: parseInt(minPriceOutput.value), max: parseInt(maxPriceOutput.value) },
-                            //     houseSize: { min: parseInt(minSizeOutput.value), max: parseInt(maxSizeOutput.value) }
-                            // };
-                            // filterListings(listings, criteria);
-
-                            // function updateListings(filteredListings) {
-                            //     // Get the container element where the listings are displayed
-                            //     var listingsContainer = document.getElementById('listings-container');
-
-                            //     // Clear the container
-                            //     listingsContainer.innerHTML = '';
-
-                            //     // Add the filtered listings to the container
-                            //     filteredListings.forEach(function(listing) {
-                            //         // Create a new div for the listing
-                            //         var listingDiv = document.createElement('div');
-                            //         listingDiv.className = 'row border border-2 border-dark-subtle rounded-top rounded-bottom mb-1 row-overrides';
-
-                            //         // Add the listing details to the div
-                            //         listingDiv.innerHTML = `
-                            //             <div class="col-sm-3">
-                            //                 <img src="${listing.image}" class="img-fluid img-thumbnail" alt="..." id="listing-${listing.listingID}-image">
-                            //             </div>
-                            //             <div class="col-sm-9" id="listing${listing.listingID}">
-                            //                 <div class="row">
-                            //                     <div class="col-sm-3 fw-bold fs-2" id="listing-${listing.listingID}-price">
-                            //                         ${listing.price}
-                            //                     </div>
-                            //                     <div class="col-sm-7 fw-bold fs-3 text-center" id="listing-${listing.listingID}-location">
-                            //                         ${listing.location}
-                            //                     </div>
-                            //                 </div>
-                            //                 <div class="row">
-                            //                     <div class="col fs-3" id="listing-${listing.listingID}-desc">
-                            //                         ${listing.description}
-                            //                     </div>
-                            //                 </div>
-                            //                 <div class="row">
-                            //                     <button name="view-${listing.listingID}" type="button" class="btn btn-primary"
-                            //                         onclick='saveListing(document.getElementsByName("view-${listing.listingID}")[0].id)'>View Listing</button>
-                            //                 </div>
-                            //             </div>
-                            //         `;
-
-                            //         // Add the listing div to the container
-                            //         listingsContainer.appendChild(listingDiv);
-                            //     });
-                            // }
-
-
-                            // function onSubmitForm() {
-                            //     var bedrooms = document.getElementById('bedrooms').value;
-                            //     var bathrooms = document.getElementById('bathrooms').value;
-                            //     var garages = document.getElementById('garages').value;
-                            //     var minPrice = document.getElementById('minPrice').value;
-                            //     var maxPrice = document.getElementById('maxPrice').value;
-                            //     var minSize = document.getElementById('minSize').value;
-                            //     var maxSize = document.getElementById('maxSize').value;
-                            
-                            //     var criteria = {
-                            //         noBedrooms: { min: parseInt(bedrooms) },
-                            //         noBathrooms: { min: parseInt(bathrooms) },
-                            //         noGarage: { min: parseInt(garages) },
-                            //         price: { min: parseInt(minPrice), max: parseInt(maxPrice) },
-                            //         houseSize: { min: parseInt(minSize), max: parseInt(maxSize) }
-                            //     };
-                            
-                            //     var filteredListings = filterListings(listings, criteria);
-                            //     updateListings(filteredListings);
-                            // }
                         </script>
 
                     </form>
@@ -513,7 +432,7 @@
             });
         }
 
-
+    /*
         function onSubmitForm() {
             var bedrooms = document.getElementById('bedrooms').value;
             var bathrooms = document.getElementById('bathrooms').value;
@@ -533,7 +452,7 @@
         
             var filteredListings = filterListings(listings, criteria);
             updateListings(filteredListings);
-        }
+        }*/
     </script>
 
 </body>
