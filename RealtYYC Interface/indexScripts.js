@@ -268,8 +268,35 @@ function filterListings()
     console.log(filteredListings)
 }
 
+function resetFilters()
+{
+    document.getElementById("MinimumPrice").value = 550000;
+    document.getElementById("MaximumPrice").value = 550000;
+    document.getElementById("MinimumSize").value = 3000;
+    document.getElementById("MaximumSize").value = 3000;
+    document.getElementById("type").value = "Home Type"
+    document.getElementById("beds").value = "No. of Bedrooms";
+    document.getElementById("baths").value = "No. of Bathrooms";
+    document.getElementById("garages").value = "No. of Garages";
+
+    var minPriceSlider = document.getElementById("MinimumPrice");
+    var maxPriceSlider = document.getElementById("MaximumPrice");
+    var minSizeSlider = document.getElementById("MinimumSize");
+    var maxSizeSlider = document.getElementById("MaximumSize");
+    var minPriceOutput = document.getElementById("minPrice");
+    var maxPriceOutput = document.getElementById("maxPrice");
+    var minSizeOutput = document.getElementById("minSize");
+    var maxSizeOutput = document.getElementById("maxSize");
+
+    minPriceOutput.innerHTML = minPriceSlider.value;
+    maxPriceOutput.innerHTML = maxPriceSlider.value;
+    minSizeOutput.innerHTML = minSizeSlider.value;
+    maxSizeOutput.innerHTML = maxSizeSlider.value;
+}
+
 //const filteredListings = filterListings(listings);
 window.onload=function()
 {
     document.getElementById('filter').addEventListener('click', filterListings);
+    document.getElementById('reset').addEventListener('click', resetFilters);
 }
