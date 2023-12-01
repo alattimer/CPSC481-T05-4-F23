@@ -224,14 +224,14 @@ function filterListings()
     var bathroomsNo = document.getElementById("baths");
     var garagesNo = document.getElementById("garages");
 
-    minPrice = minPriceSlider.value;
-    maxPrice = maxPriceSlider.value;
-    minSize = minSizeSlider.value;
-    maxSize = maxSizeSlider.value;
-    type = homeType.value;
-    beds = bedroomsNo.value;
-    baths = bathroomsNo.value;
-    garages = garagesNo.value;
+    var minPrice = minPriceSlider.value;
+    var maxPrice = maxPriceSlider.value;
+    var minSize = minSizeSlider.value;
+    var maxSize = maxSizeSlider.value;
+    var type = homeType.value;
+    var beds = parseInt(bedroomsNo.value);
+    var baths = parseFloat(bathroomsNo.value);
+    var garages = parseInt(garagesNo.value);
 
     var filteredListings = [];
     for (var i = 0; i < listings.length; i++)
@@ -241,15 +241,15 @@ function filterListings()
         {
             match = false;            
         }
-        if(beds != "No. of Bedrooms" && beds < listings[i].noBedrooms)
+        if(beds != NaN && beds > parseInt(listings[i].noBedrooms))
         {
             match = false;            
         }
-        if(baths != "No. of Bathrooms" && baths < listings[i].noBathrooms)
+        if(baths != NaN && baths > parseFloat(listings[i].noBathrooms))
         {
             match = false;          
         }
-        if(garages != "No. of Garages" && garages < listings[i].noGarages)
+        if(garages != NaN && garages > parseInt(listings[i].noGarages))
         {
             match = false;           
         }
