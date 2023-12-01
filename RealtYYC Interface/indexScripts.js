@@ -14,9 +14,14 @@ const listings = [
         noBedrooms: 3,
         noGarages: 1,
         floors: 2,
-        hasBasement: "No",
+        hasBasement: true,
         type: "House",
-        isFavorited: false
+        isFavorited: false,
+        airCond: true,
+        fireplace: true,
+        driveway: false,
+        pool: false,
+        backyard: false
     },
     {
         image: "House Images/listing2.jpg",
@@ -31,9 +36,14 @@ const listings = [
         noBedrooms: 4,
         noGarages: 1,
         floors: 1,
-        hasBasement: "No",
+        hasBasement: true,
         type: "Bungalow",
-        isFavorited: false
+        isFavorited: false,
+        airCond: true,
+        fireplace: true,
+        driveway: true,
+        pool: false,
+        backyard: true
     },
     {
         image: "House Images/listing3.jpg",
@@ -48,9 +58,14 @@ const listings = [
         noBedrooms: 2,
         noGarages: 2,
         floors: 3,
-        hasBasement: "No",
+        hasBasement: false,
         type: "Duplex",
-        isFavorited: false
+        isFavorited: false,
+        airCond: true,
+        fireplace: true,
+        driveway: true,
+        pool: false,
+        backyard: true
     },
     {
         image: "House Images/listing4.jpg",
@@ -65,9 +80,14 @@ const listings = [
         noBedrooms: 4,
         noGarages: 0,
         floors: 2,
-        hasBasement: "Yes",
+        hasBasement: false,
         type: "Condominium",
-        isFavorited: false
+        isFavorited: false,
+        airCond: true,
+        fireplace: false,
+        driveway: false,
+        pool: false,
+        backyard: false
     },
     {
         image: "House Images/listing5.jpg",
@@ -82,10 +102,15 @@ const listings = [
         noBedrooms: 3,
         noGarages: 1,
         floors: 2,
-        hasBasement: "Yes",
+        hasBasement: false,
         type: "House",
         hasFireplace: "Yes",
-        isFavorited: false
+        isFavorited: false,
+        airCond: true,
+        fireplace: true,
+        driveway: false,
+        pool: false,
+        backyard: false
     },
     {
         image: "House Images/listing6.png",
@@ -100,10 +125,15 @@ const listings = [
         noBedrooms: 2,
         noGarages: 1,
         floors: 1,
-        hasBasement: "No",
+        hasBasement: false,
         type: "Bungalow",
         hasFireplace: "No",
-        isFavorited: false
+        isFavorited: false,
+        airCond: false,
+        fireplace: true,
+        driveway: false,
+        pool: false,
+        backyard: false
     },
     {
         image: "House Images/listing7.jpg",
@@ -117,9 +147,14 @@ const listings = [
         noBedrooms: 4,
         noGarages: 1,
         floors: "Two Floors, All Wood",
-        basement: "Yes",
+        basement: true,
         type: "House",
-        isFavorited: false
+        isFavorited: false,
+        airCond: true,
+        fireplace: true,
+        driveway: false,
+        pool: true,
+        backyard: true
     },
     {
         image: "House Images/listing8.jpg",
@@ -134,9 +169,14 @@ const listings = [
         noBedrooms: 3,
         noGarages: 0,
         floors: "Three Floors, All Laminated",
-        basement: "Yes",
+        basement: true,
         type: "Duplex",
-        isFavorited: false
+        isFavorited: false,
+        airCond: true,
+        fireplace: false,
+        driveway: false,
+        pool: true,
+        backyard: false
     },
     {
         image: "House Images/listing9.jpg",
@@ -151,9 +191,14 @@ const listings = [
         noBedrooms: 3,
         noGarages: 3,
         floors: "Two Floors, All Wood",
-        basement: "Yes",
+        basement: true,
         type: "House",
-        isFavorited: false
+        isFavorited: false,
+        airCond: true,
+        fireplace: true,
+        driveway: true,
+        pool: false,
+        backyard: true
     },
     {
         image: "House Images/listing10.jpg",
@@ -168,9 +213,14 @@ const listings = [
         noBedrooms: 3,
         noGarages: 0,
         floors: "Three Floors, All Laminated",
-        basement: "Yes",
+        basement: true,
         type: "House",
-        isFavorited: false
+        isFavorited: false,
+        airCond: false,
+        fireplace: true,
+        driveway: true,
+        pool: false,
+        backyard: true
     }];
 
 function getRandomListing(ran) {
@@ -223,6 +273,13 @@ function filterListings()
     var bathroomsNo = document.getElementById("baths");
     var garagesNo = document.getElementById("garages");
 
+    var bYard = document.getElementById("backyard").checked;
+    var base = document.getElementById("basement").checked;
+    var AC = document.getElementById("airCond").checked;
+    var fplace = document.getElementById("fireplace").checked;
+    var dWay = document.getElementById("dWay").checked;
+    var pool = document.getElementById("pool").checked;
+
     var minPrice = minPriceSlider.value;
     var maxPrice = maxPriceSlider.value;
     var minSize = minSizeSlider.value;
@@ -260,20 +317,45 @@ function filterListings()
         {
             match = false;           
         }
+        if(bYard && !listings[i].backyard)
+        {
+            match = false;            
+        }
+        if(base && !listings[i].basement)
+        {
+            match = false;            
+        }
+        if(AC && !listings[i].airCond)
+        {
+            match = false;          
+        }
+        if(fplace && !listings[i].fireplace)
+        {
+            match = false;           
+        }
+        if(dWay && !listings[i].driveway)
+        {
+            match = false;
+        }
+        if(pool && !listings[i].pool)
+        {
+            match = false;           
+        }
         if(match)
         {
             filteredListings.push(listings[i])
         }
     }
     console.log(filteredListings)
+    //TODO: Somehow convert these filteredListings to HTML
 }
 
 function resetFilters()
 {
-    document.getElementById("MinimumPrice").value = 550000;
-    document.getElementById("MaximumPrice").value = 550000;
-    document.getElementById("MinimumSize").value = 3000;
-    document.getElementById("MaximumSize").value = 3000;
+    document.getElementById("MinimumPrice").value = 250000;
+    document.getElementById("MaximumPrice").value = 750000;
+    document.getElementById("MinimumSize").value = 1700;
+    document.getElementById("MaximumSize").value = 3900;
     document.getElementById("type").value = "Home Type"
     document.getElementById("beds").value = "No. of Bedrooms";
     document.getElementById("baths").value = "No. of Bathrooms";

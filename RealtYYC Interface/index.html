@@ -67,30 +67,29 @@
                         </select>
                         <label style="margin-left: 20px; margin-top: 10px;" for="MinimumPrice" class="form-label">Minimum Price: <span id="minPrice"></span>
                             $</label>
-                        <input type="range" class="form-range" min="100000" max="1000000" id="MinimumPrice">
+                        <input type="range" class="form-range" min="100000" max="1000000" id="MinimumPrice" value="250000">
                         <label style="margin-left: 20px;" for="MaximumPrice" class="form-label">Maximum Price: <span id="maxPrice"></span>
                             $</label>
-                        <input type="range" class="form-range" min="100000" max="1000000" id="MaximumPrice">
+                        <input type="range" class="form-range" min="100000" max="1000000" id="MaximumPrice" value="750000">
                         <label style="margin-left: 20px;" for="MinimumSize" class="form-label">Minimum Size: <span id="minSize"></span> sq.
                             ft.</label>
-                        <input type="range" class="form-range" min="1000" max="5000" id="MinimumSize">
+                        <input type="range" class="form-range" min="1000" max="5000" id="MinimumSize" value="1700">
                         <label style="margin-left: 20px;" for="MaximumSize" class="form-label">Maximum Size: <span id="maxSize"></span> sq.
                             ft.</label>
-                        <input type="range" class="form-range" min="1000" max="5000" id="MaximumSize">
+                        <input type="range" class="form-range" min="1000" max="5000" id="MaximumSize" value="3900">
+                        <p style="margin-left: 20px;">Check the boxes below for your additional options:</p>
                         <label style="margin-left: 20px;" for="backyard" class="form-label">Backyard?</label>
-                        <input class="form-check-input" type="checkbox" id="backyard" name="backyard" value="good" checked>
+                        <input class="form-check-input" type="checkbox" id="backyard" name="backyard">
                         <label style="margin-left: 20px;"for="basement" class="form-label">Finished Basement?</label>
-                        <input class="form-check-input" type="checkbox" id="basement" name="basement" value="good" checked>
+                        <input class="form-check-input" type="checkbox" id="basement" name="basement">
                         <label style="margin-left: 20px;" for="airCond" class="form-label">Air Conditioning?</label>
-                        <input class="form-check-input" type="checkbox" id="airCond" name="airCond" value="good" checked>
+                        <input class="form-check-input" type="checkbox" id="airCond" name="airCond">
                         <label style="margin-left: 20px;" for="fireplace" class="form-label">Fireplace?</label>
-                        <input class="form-check-input" type="checkbox" id="fireplace" name="fireplace" value="good" checked>
+                        <input class="form-check-input" type="checkbox" id="fireplace" name="fireplace">
                         <label style="margin-left: 20px;" for="dWay" class="form-label">Driveway?</label>
-                        <input class="form-check-input" type="checkbox" id="dWay" name="dWay" value="good" checked>
-                        <label style="margin-left: 20px;" for="attachGarage" class="form-label">Attached Garages?</label>
-                        <input class="form-check-input" type="checkbox" id="attachGarage" name="attachGarage" value="good" checked>
+                        <input class="form-check-input" type="checkbox" id="dWay" name="dWay">
                         <label style="margin-left: 20px;" for="pool" class="form-label">Hot Tub/Pool?</label>
-                        <input class="form-check-input" type="checkbox" id="pool" name="pool" value="good" checked>
+                        <input class="form-check-input" type="checkbox" id="pool" name="pool">
                         <button style="margin-left:auto; margin-right:auto; margin-bottom:5px; display:block; width:40%;" type="button" id="filter" class="btn btn-primary">Search</button>
                         <button style="margin-left:auto; margin-right:auto; display:block; width:40%;" type="button" id="reset" onclick="event.stopPropagation();" class="btn btn-primary">Reset Filters</button>
 
