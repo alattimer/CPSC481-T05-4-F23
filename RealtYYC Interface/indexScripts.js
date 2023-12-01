@@ -108,6 +108,7 @@ const listings = [
     {
         image: "House Images/listing7.jpg",
         price: 680000,
+        size: 1730,
         shortDesc: "4-bed, 3-bath house with a hot tub and attached garage.",
         longDesc: "Indulge in this well-appointed house featuring a hot tub in the backyard, a spacious living area, and an attached garage. The master suite includes a private bathroom and walk-in closet.",
         location: "890 Elmwood Drive, Calgary",

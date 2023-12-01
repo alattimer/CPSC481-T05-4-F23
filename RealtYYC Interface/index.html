@@ -91,7 +91,7 @@
                         <input class="form-check-input" type="checkbox" id="attachGarage" name="attachGarage" value="good" checked>
                         <label style="margin-left: 20px;" for="pool" class="form-label">Hot Tub/Pool?</label>
                         <input class="form-check-input" type="checkbox" id="pool" name="pool" value="good" checked>
-                        <button style="margin-left:auto; margin-right:auto; margin-bottom:5px; display:block; width:40%;" type="button" id="filter" class="btn btn-primary">Search</button>
+                        <button style="margin-left:auto; margin-right:auto; margin-bottom:5px; display:block; width:40%;" type="button" id="filter" class="btn btn-primary" onclick="onSubmitForm()">Search</button>
                         <button style="margin-left:auto; margin-right:auto; display:block; width:40%;" type="button" id="reset" onclick="event.stopPropagation();" class="btn btn-primary">Reset Filters</button>
 
                         <script>
@@ -132,7 +132,8 @@
         </div>
     </nav>
 
-    <!--LISTING CONTAINER, EACH ROW IS A NEW LISTING TO SHOW OUR CLIENTS-->
+
+    <!-- LISTING CONTAINER, EACH ROW IS A NEW LISTING TO SHOW OUR CLIENTS -->
     <div class="container-fluid overflow-hidden" id="listings-container">
 
         <!--LISTING ONE-->
@@ -433,7 +434,6 @@
             });
         }
 
-    /*
         function onSubmitForm() {
             var bedrooms = document.getElementById('bedrooms').value;
             var bathrooms = document.getElementById('bathrooms').value;
@@ -453,7 +453,7 @@
         
             var filteredListings = filterListings(listings, criteria);
             updateListings(filteredListings);
-        }*/
+        }
     </script>
 
 </body>
