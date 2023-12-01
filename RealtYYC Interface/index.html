@@ -261,6 +261,20 @@
         const formatter = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'CAD' });
         let loc = "Location: ";
         let price = "Price: "
+
+        //TODO: Come back and fix this piece of shit for storing the favorited listings correctly
+        window.onload = storeInLocalStorage();
+        window.onload = updateListingsFromStorage();
+
+        for(let index = 1; index < getListingsSize(); index++)
+        {
+            var listing = getListingByID(index);
+            if(listing.isFavorited == true)
+            {
+                window.aler(index + " is favorited!");
+            }
+        }
+
         for (let index = 1; index < 6; index++) {
             var ran = Math.floor(Math.random() * 10);
             var listing = getRandomListing(ran);

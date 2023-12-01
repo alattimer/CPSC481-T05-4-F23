@@ -1,6 +1,6 @@
 //TODO: Come in here an add a "Favovite" trigger for favoriting system.
 //TODO: come in here and split description into two different strings, shortDesc and longDesc, to seperate descriptions for front page and the housing page.
-const listings = [
+var listings = [
     {
         image: "House Images/DefaultHouse.jpg",
         price: 620000,
@@ -95,7 +95,7 @@ const listings = [
         longDesc: "This charming bungalow offers a comfortable living space, a detached garage, and a quaint backyard. Perfect for those seeking a cozy, low-maintenance home.",
         location: "789 Aspen Lane, Calgary",
         isListed: false,
-        listingID: 7,
+        listingID: 6,
         noBathrooms: 1,
         noBedrooms: 2,
         noGarages: 1,
@@ -112,7 +112,7 @@ const listings = [
         longDesc: "Indulge in this well-appointed house featuring a hot tub in the backyard, a spacious living area, and an attached garage. The master suite includes a private bathroom and walk-in closet.",
         location: "890 Elmwood Drive, Calgary",
         isListed: false,
-        listingID: 8,
+        listingID: 7,
         noBathrooms: 3,
         noBedrooms: 4,
         noGarages: 1,
@@ -129,7 +129,7 @@ const listings = [
         longDesc: "Live in luxury with this duplex offering air conditioning, a private pool, and high-end finishes throughout. The master bedroom includes a walk-in closet and an ensuite bathroom.",
         location: "901 Spruce Grove Avenue, Calgary",
         isListed: false,
-        listingID: 1,
+        listingID: 8,
         noBathrooms: 2,
         noBedrooms: 3,
         noGarages: 0,
@@ -173,12 +173,27 @@ const listings = [
         isFavorited: false
     }];
 
+function storeInLocalStorage()
+{
+    sessionStorage.setItem("listings", JSON.stringify(listings));
+}
+
+function updateListingsFromStorage()
+{
+    listings = JSON.parse(sessionStorage.getItem("listings"));
+}
+
 function getRandomListing(ran) {
     return listings[ran];
 }
 
 function setListed(ran) {
     listings[ran].isListed = true;
+}
+
+function setFavorite(id)
+{
+
 }
 
 function getListingsSize() {
