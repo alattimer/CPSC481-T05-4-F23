@@ -108,6 +108,7 @@ var listings = [
     {
         image: "House Images/listing7.jpg",
         price: 680000,
+        size: 1730,
         shortDesc: "4-bed, 3-bath house with a hot tub and attached garage.",
         longDesc: "Indulge in this well-appointed house featuring a hot tub in the backyard, a spacious living area, and an attached garage. The master suite includes a private bathroom and walk-in closet.",
         location: "890 Elmwood Drive, Calgary",
@@ -238,14 +239,14 @@ function filterListings()
     var bathroomsNo = document.getElementById("baths");
     var garagesNo = document.getElementById("garages");
 
-    minPrice = minPriceSlider.value;
-    maxPrice = maxPriceSlider.value;
-    minSize = minSizeSlider.value;
-    maxSize = maxSizeSlider.value;
-    type = homeType.value;
-    beds = bedroomsNo.value;
-    baths = bathroomsNo.value;
-    garages = garagesNo.value;
+    var minPrice = minPriceSlider.value;
+    var maxPrice = maxPriceSlider.value;
+    var minSize = minSizeSlider.value;
+    var maxSize = maxSizeSlider.value;
+    var type = homeType.value;
+    var beds = parseInt(bedroomsNo.value);
+    var baths = parseFloat(bathroomsNo.value);
+    var garages = parseInt(garagesNo.value);
 
     var filteredListings = [];
     for (var i = 0; i < listings.length; i++)
@@ -255,15 +256,15 @@ function filterListings()
         {
             match = false;            
         }
-        if(beds != "No. of Bedrooms" && beds < listings[i].noBedrooms)
+        if(beds != NaN && beds > parseInt(listings[i].noBedrooms))
         {
             match = false;            
         }
-        if(baths != "No. of Bathrooms" && baths < listings[i].noBathrooms)
+        if(baths != NaN && baths > parseFloat(listings[i].noBathrooms))
         {
             match = false;          
         }
-        if(garages != "No. of Garages" && garages < listings[i].noGarages)
+        if(garages != NaN && garages > parseInt(listings[i].noGarages))
         {
             match = false;           
         }
@@ -283,8 +284,35 @@ function filterListings()
     console.log(filteredListings)
 }
 
+function resetFilters()
+{
+    document.getElementById("MinimumPrice").value = 550000;
+    document.getElementById("MaximumPrice").value = 550000;
+    document.getElementById("MinimumSize").value = 3000;
+    document.getElementById("MaximumSize").value = 3000;
+    document.getElementById("type").value = "Home Type"
+    document.getElementById("beds").value = "No. of Bedrooms";
+    document.getElementById("baths").value = "No. of Bathrooms";
+    document.getElementById("garages").value = "No. of Garages";
+
+    var minPriceSlider = document.getElementById("MinimumPrice");
+    var maxPriceSlider = document.getElementById("MaximumPrice");
+    var minSizeSlider = document.getElementById("MinimumSize");
+    var maxSizeSlider = document.getElementById("MaximumSize");
+    var minPriceOutput = document.getElementById("minPrice");
+    var maxPriceOutput = document.getElementById("maxPrice");
+    var minSizeOutput = document.getElementById("minSize");
+    var maxSizeOutput = document.getElementById("maxSize");
+
+    minPriceOutput.innerHTML = minPriceSlider.value;
+    maxPriceOutput.innerHTML = maxPriceSlider.value;
+    minSizeOutput.innerHTML = minSizeSlider.value;
+    maxSizeOutput.innerHTML = maxSizeSlider.value;
+}
+
 //const filteredListings = filterListings(listings);
 window.onload=function()
 {
     document.getElementById('filter').addEventListener('click', filterListings);
+    document.getElementById('reset').addEventListener('click', resetFilters);
 }
