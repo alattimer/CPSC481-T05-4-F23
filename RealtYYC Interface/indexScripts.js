@@ -229,7 +229,7 @@ function filterListings()
     var maxSize = maxSizeSlider.value;
     var type = homeType.value;
     var beds = parseInt(bedroomsNo.value);
-    var baths = parseInt(bathroomsNo.value);
+    var baths = parseFloat(bathroomsNo.value);
     var garages = parseInt(garagesNo.value);
 
     var filteredListings = [];
