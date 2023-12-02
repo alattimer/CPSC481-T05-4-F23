@@ -363,7 +363,53 @@ function filterListings()
         }
     }
     console.log(filteredListings)
+    HTMLConversion(filteredListings)
     //TODO: Somehow convert these filteredListings to HTML
+    // I added the conversion in the function below
+}
+
+function HTMLConversion(filteredListings) {
+    // Get the container element where the listings are displayed
+    var listingsContainer = document.getElementById('listings-container');
+
+    // Clear the container
+    listingsContainer.innerHTML = '';
+
+    // Add the filtered listings to the container
+    filteredListings.forEach(function(listing) {
+        // Create a new div for the listing
+        var listingDiv = document.createElement('div');
+        listingDiv.className = 'row border border-2 border-dark-subtle rounded-top rounded-bottom mb-1 row-overrides';
+
+        // Add the listing details to the div
+        listingDiv.innerHTML = `
+            <div class="col-sm-3">
+                <img src="${listing.image}" class="img-fluid img-thumbnail" alt="..." id="listing-${listing.listingID}-image">
+            </div>
+            <div class="col-sm-9" id="listing${listing.listingID}">
+                <div class="row">
+                    <div class="col-sm-3 fw-bold fs-2" id="listing-${listing.listingID}-price">
+                        ${listing.price}
+                    </div>
+                    <div class="col-sm-7 fw-bold fs-3 text-center" id="listing-${listing.listingID}-location">
+                        ${listing.location}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col fs-3" id="listing-${listing.listingID}-desc">
+                        ${listing.description}
+                    </div>
+                </div>
+                <div class="row">
+                    <button name="view-${listing.listingID}" type="button" class="btn btn-primary"
+                        onclick='saveListing(document.getElementsByName("view-${listing.listingID}")[0].id)'>View Listing</button>
+                </div>
+            </div>
+        `;
+
+        // Add the listing div to the container
+        listingsContainer.appendChild(listingDiv);
+    });
 }
 
 function resetFilters()
