@@ -363,17 +363,15 @@ function filterListings()
         }
     }
     console.log(filteredListings)
-    HTMLConversion(filteredListings)
     //TODO: Somehow convert these filteredListings to HTML
     // I added the conversion in the function below
+    
+    var returnedHTMLString = HTMLConversion(filteredListings);
+    return returnedHTMLString;
 }
 
 function HTMLConversion(filteredListings) {
-    // Get the container element where the listings are displayed
-    var listingsContainer = document.getElementById('listings-container');
-
-    // Clear the container
-    listingsContainer.innerHTML = '';
+    // The HTML code will be stored in var listingDiv
 
     // Add the filtered listings to the container
     filteredListings.forEach(function(listing) {
@@ -410,6 +408,7 @@ function HTMLConversion(filteredListings) {
         // Add the listing div to the container
         listingsContainer.appendChild(listingDiv);
     });
+    return listingDiv;
 }
 
 function resetFilters()
