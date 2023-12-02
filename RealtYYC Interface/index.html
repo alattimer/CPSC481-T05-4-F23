@@ -262,6 +262,11 @@
         const formatter = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'CAD' });
         let loc = "Location: ";
         let price = "Price: "
+        /* 
+
+        Brandon I commented this out temporarily so I could work on the filtering. I think that the "window.onload" may be causing you some problems
+        and why its not working for you. I have a window.onload in indexScripts.js that may be the cause of some problems, because I know when I comment this one 
+        out, my other one works fine. You can try commenting mine out when you need to work on it, and we can set up a time to fix both of them sometime this weekend.
 
         //TODO: Come back and fix this piece of shit for storing the favorited listings correctly
         window.onload = storeInLocalStorage();
@@ -275,7 +280,7 @@
                 window.aler(index + " is favorited!");
             }
         }
-
+        */
         for (let index = 1; index < 6; index++) {
             var ran = Math.floor(Math.random() * 10);
             var listing = getRandomListing(ran);

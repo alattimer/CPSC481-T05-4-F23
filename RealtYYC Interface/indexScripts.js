@@ -390,6 +390,13 @@ function resetFilters()
     maxPriceOutput.innerHTML = maxPriceSlider.value;
     minSizeOutput.innerHTML = minSizeSlider.value;
     maxSizeOutput.innerHTML = maxSizeSlider.value;
+
+    document.getElementById("backyard").checked = false;
+    document.getElementById("basement").checked = false;
+    document.getElementById("airCond").checked = false;
+    document.getElementById("fireplace").checked = false;
+    document.getElementById("dWay").checked = false;
+    document.getElementById("pool").checked = false;
 }
 
 //const filteredListings = filterListings(listings);
