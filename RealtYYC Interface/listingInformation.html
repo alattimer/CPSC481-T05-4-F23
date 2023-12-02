@@ -131,9 +131,6 @@
         //document.getElementById("list-floors").innerHTML = "Floors: " + listing.floors;
         //document.getElementById("list-basement").innerHTML = "Basement: " + listing.basement;
 
-        window.onload = setButtons();
-        window.onload = updateListingsFromStorage();
-
         function setButtons() {
             if (listing.isFavorited == true) {
                 setButtonsOnTrue();
@@ -162,16 +159,11 @@
                     stored_listings[i].isFavorited = true;
                     document.getElementById("favorite").disabled = true;
                     document.getElementById("unfavorite").disabled = false;
-                    updateListingsFromStorage();
                     sessionStorage.setItem("listings", JSON.stringify(stored_listings));
+                    updateListingsFromStorage();
                 }
             }
         }
-
-
     </script>
-
-
 </body>
-
 </html>
