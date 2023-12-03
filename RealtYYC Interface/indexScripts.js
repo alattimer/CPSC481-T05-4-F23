@@ -224,13 +224,11 @@ var listings = [
         backyard: true
     }];
 
-function storeInLocalStorage()
-{
+function storeInLocalStorage() {
     sessionStorage.setItem("listings", JSON.stringify(listings));
 }
 
-function updateListingsFromStorage()
-{
+function updateListingsFromStorage() {
     listings = JSON.parse(sessionStorage.getItem("listings"));
 }
 
@@ -242,8 +240,7 @@ function setListed(ran) {
     listings[ran].isListed = true;
 }
 
-function setFavorite(id)
-{
+function setFavorite(id) {
 
 }
 
@@ -278,8 +275,7 @@ const criteria = {
 
 
 // filterListings is called when the submit form button for the advanced search filter is called
-function filterListings() 
-{
+function filterListings() {
     var minPriceSlider = document.getElementById("MinimumPrice");
     var maxPriceSlider = document.getElementById("MaximumPrice");
     var minSizeSlider = document.getElementById("MinimumSize");
@@ -306,66 +302,52 @@ function filterListings()
     var garages = parseInt(garagesNo.value);
 
     var filteredListings = [];
-    for (var i = 0; i < listings.length; i++)
-    {
+    for (var i = 0; i < listings.length; i++) {
         match = true;
-        if(type != "Home Type" && type != listings[i].type)
-        {
-            match = false;            
-        }
-        if(beds != NaN && beds > parseInt(listings[i].noBedrooms))
-        {
-            match = false;            
-        }
-        if(baths != NaN && baths > parseFloat(listings[i].noBathrooms))
-        {
-            match = false;          
-        }
-        if(garages != NaN && garages > parseInt(listings[i].noGarages))
-        {
-            match = false;           
-        }
-        if(minPrice > listings[i].price || maxPrice < listings[i].price)
-        {
+        if (type != "Home Type" && type != listings[i].type) {
             match = false;
         }
-        if(minSize > listings[i].size || maxSize < listings[i].size)
-        {
-            match = false;           
-        }
-        if(bYard && !listings[i].backyard)
-        {
-            match = false;            
-        }
-        if(base && !listings[i].basement)
-        {
-            match = false;            
-        }
-        if(AC && !listings[i].airCond)
-        {
-            match = false;          
-        }
-        if(fplace && !listings[i].fireplace)
-        {
-            match = false;           
-        }
-        if(dWay && !listings[i].driveway)
-        {
+        if (beds != NaN && beds > parseInt(listings[i].noBedrooms)) {
             match = false;
         }
-        if(pool && !listings[i].pool)
-        {
-            match = false;           
+        if (baths != NaN && baths > parseFloat(listings[i].noBathrooms)) {
+            match = false;
         }
-        if(match)
-        {
+        if (garages != NaN && garages > parseInt(listings[i].noGarages)) {
+            match = false;
+        }
+        if (minPrice > listings[i].price || maxPrice < listings[i].price) {
+            match = false;
+        }
+        if (minSize > listings[i].size || maxSize < listings[i].size) {
+            match = false;
+        }
+        if (bYard && !listings[i].backyard) {
+            match = false;
+        }
+        if (base && !listings[i].basement) {
+            match = false;
+        }
+        if (AC && !listings[i].airCond) {
+            match = false;
+        }
+        if (fplace && !listings[i].fireplace) {
+            match = false;
+        }
+        if (dWay && !listings[i].driveway) {
+            match = false;
+        }
+        if (pool && !listings[i].pool) {
+            match = false;
+        }
+        if (match) {
             filteredListings.push(listings[i])
         }
     }
     console.log(filteredListings)
     //TODO: Somehow convert these filteredListings to HTML
     // I added the conversion in the function below
-    
+
     var returnedHTMLString = HTMLConversion(filteredListings);
     return returnedHTMLString;
 }
@@ -374,7 +356,7 @@ function HTMLConversion(filteredListings) {
     // The HTML code will be stored in var listingDiv
 
     // Add the filtered listings to the container
-    filteredListings.forEach(function(listing) {
+    filteredListings.forEach(function (listing) {
         // Create a new div for the listing
         var listingDiv = document.createElement('div');
         listingDiv.className = 'row border border-2 border-dark-subtle rounded-top rounded-bottom mb-1 row-overrides';
@@ -411,8 +393,7 @@ function HTMLConversion(filteredListings) {
     return listingDiv;
 }
 
-function resetFilters()
-{
+function resetFilters() {
     document.getElementById("MinimumPrice").value = 250000;
     document.getElementById("MaximumPrice").value = 750000;
     document.getElementById("MinimumSize").value = 1700;
@@ -445,8 +426,15 @@ function resetFilters()
 }
 
 //const filteredListings = filterListings(listings);
-window.onload=function()
-{
+window.onload = function () {
     document.getElementById('filter').addEventListener('click', filterListings);
     document.getElementById('reset').addEventListener('click', resetFilters);
+
+    // Load the array into session storage ONCE, if its already there update from session storage
+    if (JSON.parse(sessionStorage.getItem("listings")) === null) {
+        storeInLocalStorage();
+    }
+    else {
+        updateListingsFromStorage()
+    }
 }
