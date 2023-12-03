@@ -29,8 +29,10 @@
                 <input type="text" placeholder="Search By Address...">
                 <button class="btn btn-secondary" type="button">Search</button>
                 <button class="btn btn-secondary" type="button">How To List</button>
-                <button class="btn btn-secondary" type="button" onclick="location.href = 'favoritedListings.html'">View Favorited Listings</button>
-                <button class="btn btn-secondary" type="button" onclick="location.href = 'realtors.html'">Current Realtors</button>
+                <button class="btn btn-secondary" type="button" onclick="location.href = 'favoritedListings.html'">View
+                    Favorited Listings</button>
+                <button class="btn btn-secondary" type="button" onclick="location.href = 'realtors.html'">Current
+                    Realtors</button>
                 <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                     data-bs-toggle="dropdown" aria-expanded="false">
                     Filter Search for a Home
@@ -38,7 +40,8 @@
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" style="width:700px;">
                     <form class="px-4 py-3">
                         <p style="margin-left: 20px;"><b>Advanced Search Filters:</p>
-                        <select style="margin-left: 20px; width: 60%;" id="type" class="form-select" aria-label="Home Type">
+                        <select style="margin-left: 20px; width: 60%;" id="type" class="form-select"
+                            aria-label="Home Type">
                             <option selected>Home Type</option>
                             <option>House</option>
                             <option>Condominium</option>
@@ -46,42 +49,51 @@
                             <option>Bungalow</option>
                             <option>Bi-level</option>
                         </select>
-                        <select style="margin-left: 20px; width: 60%;" id="beds" class="form-select" aria-label="Minimum No. of Bedrooms">
+                        <select style="margin-left: 20px; width: 60%;" id="beds" class="form-select"
+                            aria-label="Minimum No. of Bedrooms">
                             <option selected>No. of Bedrooms</option>
                             <option value="1">One Bedroom</option>
                             <option value="2">Two Bedrooms</option>
                             <option value="3">Three Bedrooms</option>
                             <option value="4">Four or more Bedrooms</option>
                         </select>
-                        <select style="margin-left: 20px; width: 60%;" id="baths" class="form-select" aria-label="Minimum No. of Bathrooms">
+                        <select style="margin-left: 20px; width: 60%;" id="baths" class="form-select"
+                            aria-label="Minimum No. of Bathrooms">
                             <option selected>No. of Bathrooms</option>
                             <option value="1">One Bathroom</option>
                             <option value="2">Two Bathrooms</option>
                             <option value="3">Three Bathrooms</option>
                             <option value="4">Four or more Bathrooms</option>
                         </select>
-                        <select style="margin-left: 20px; width: 60%;" id="garages" class="form-select" aria-label="Minimum. of Garages">
+                        <select style="margin-left: 20px; width: 60%;" id="garages" class="form-select"
+                            aria-label="Minimum. of Garages">
                             <option selected>No. of Garages</option>
                             <option value="0">Zero Garages</option>
                             <option value="1">One Garage</option>
                             <option value="2">Two or more Garages</option>
                         </select>
-                        <label style="margin-left: 20px; margin-top: 10px;" for="MinimumPrice" class="form-label">Minimum Price: <span id="minPrice"></span>
+                        <label style="margin-left: 20px; margin-top: 10px;" for="MinimumPrice"
+                            class="form-label">Minimum Price: <span id="minPrice"></span>
                             $</label>
-                        <input type="range" class="form-range" min="100000" max="1000000" id="MinimumPrice" value="250000">
-                        <label style="margin-left: 20px;" for="MaximumPrice" class="form-label">Maximum Price: <span id="maxPrice"></span>
+                        <input type="range" class="form-range" min="100000" max="1000000" id="MinimumPrice"
+                            value="250000">
+                        <label style="margin-left: 20px;" for="MaximumPrice" class="form-label">Maximum Price: <span
+                                id="maxPrice"></span>
                             $</label>
-                        <input type="range" class="form-range" min="100000" max="1000000" id="MaximumPrice" value="750000">
-                        <label style="margin-left: 20px;" for="MinimumSize" class="form-label">Minimum Size: <span id="minSize"></span> sq.
+                        <input type="range" class="form-range" min="100000" max="1000000" id="MaximumPrice"
+                            value="750000">
+                        <label style="margin-left: 20px;" for="MinimumSize" class="form-label">Minimum Size: <span
+                                id="minSize"></span> sq.
                             ft.</label>
                         <input type="range" class="form-range" min="1000" max="5000" id="MinimumSize" value="1700">
-                        <label style="margin-left: 20px;" for="MaximumSize" class="form-label">Maximum Size: <span id="maxSize"></span> sq.
+                        <label style="margin-left: 20px;" for="MaximumSize" class="form-label">Maximum Size: <span
+                                id="maxSize"></span> sq.
                             ft.</label>
                         <input type="range" class="form-range" min="1000" max="5000" id="MaximumSize" value="3900">
                         <p style="margin-left: 20px;">Check the boxes below for your additional options:</p>
                         <label style="margin-left: 20px;" for="backyard" class="form-label">Backyard?</label>
                         <input class="form-check-input" type="checkbox" id="backyard" name="backyard">
-                        <label style="margin-left: 20px;"for="basement" class="form-label">Finished Basement?</label>
+                        <label style="margin-left: 20px;" for="basement" class="form-label">Finished Basement?</label>
                         <input class="form-check-input" type="checkbox" id="basement" name="basement">
                         <label style="margin-left: 20px;" for="airCond" class="form-label">Air Conditioning?</label>
                         <input class="form-check-input" type="checkbox" id="airCond" name="airCond">
@@ -91,8 +103,11 @@
                         <input class="form-check-input" type="checkbox" id="dWay" name="dWay">
                         <label style="margin-left: 20px;" for="pool" class="form-label">Hot Tub/Pool?</label>
                         <input class="form-check-input" type="checkbox" id="pool" name="pool">
-                        <button style="margin-left:auto; margin-right:auto; margin-bottom:5px; display:block; width:40%;" type="button" id="filter" class="btn btn-primary">Search</button>
-                        <button style="margin-left:auto; margin-right:auto; display:block; width:40%;" type="button" id="reset" onclick="event.stopPropagation();" class="btn btn-primary">Reset Filters</button>
+                        <button
+                            style="margin-left:auto; margin-right:auto; margin-bottom:5px; display:block; width:40%;"
+                            type="button" id="filter" class="btn btn-primary">Search</button>
+                        <button style="margin-left:auto; margin-right:auto; display:block; width:40%;" type="button"
+                            id="reset" onclick="event.stopPropagation();" class="btn btn-primary">Reset Filters</button>
 
                         <script>
                             var minPriceSlider = document.getElementById("MinimumPrice");
@@ -264,7 +279,7 @@
         const formatter = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'CAD' });
         let loc = "Location: ";
         let price = "Price: "
-        
+
         /* 
 
         Brandon I commented this out temporarily so I could work on the filtering. I think that the "window.onload" may be causing you some problems
@@ -284,11 +299,14 @@
                 window.alert(listing[index].listingID + " is favorited!");
             }
         }*/
-        
+
         for (let index = 1; index < 6; index++) {
-            if(sessionStorage.getItem("listings") === null)
-            {
+            if (sessionStorage.getItem("listings") == null) {
                 storeInLocalStorage();
+            }
+            var stored_listings = JSON.parse(sessionStorage.getItem("listings"));
+            for (var i = 0; i < stored_listings.length; i++) {
+                stored_listings[i].isListed = false;
             }
             var ran = Math.floor(Math.random() * 10);
             var listing = getRandomListing(ran);
@@ -396,7 +414,7 @@
                     viewButton.setAttribute("class", "btn btn-primary");
                     viewButton.setAttribute("id", listing.listingID);
                     viewButton.setAttribute("name", "view-" + int);
-                    viewButton.onclick = function() {saveListing(document.getElementsByName("view-"+int)[0].id)}
+                    viewButton.onclick = function () { saveListing(document.getElementsByName("view-" + int)[0].id) }
                     viewButton.innerHTML = "View Listing";
 
                     document.getElementById("listing-" + int + "-btn").append(viewButton);
@@ -424,7 +442,7 @@
             listingsContainer.innerHTML = '';
 
             // Add the filtered listings to the container
-            filteredListings.forEach(function(listing) {
+            filteredListings.forEach(function (listing) {
                 // Create a new div for the listing
                 var listingDiv = document.createElement('div');
                 listingDiv.className = 'row border border-2 border-dark-subtle rounded-top rounded-bottom mb-1 row-overrides';
@@ -468,7 +486,7 @@
             var maxPrice = document.getElementById('maxPrice').value;
             var minSize = document.getElementById('minSize').value;
             var maxSize = document.getElementById('maxSize').value;
-        
+
             var criteria = {
                 noBedrooms: { min: parseInt(bedrooms) },
                 noBathrooms: { min: parseInt(bathrooms) },
@@ -476,7 +494,7 @@
                 price: { min: parseInt(minPrice), max: parseInt(maxPrice) },
                 houseSize: { min: parseInt(minSize), max: parseInt(maxSize) }
             };
-        
+
             var filteredListings = filterListings(listings, criteria);
             updateListings(filteredListings);
         }

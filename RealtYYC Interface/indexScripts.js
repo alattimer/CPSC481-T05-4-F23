@@ -239,7 +239,9 @@ function getRandomListing(ran) {
 }
 
 function setListed(ran) {
-    listings[ran].isListed = true;
+    var listings_storage = JSON.parse(sessionStorage.getItem("listings"))
+    listings_storage[ran].isListed = true;
+    sessionStorage.setItem("listings", JSON.stringify(listings_storage));
 }
 
 function setFavorite(id) {
@@ -255,6 +257,7 @@ function getUnlistedListing() {
     for (let index = 0; index < listings_storage.length; index++) {
         if (listings_storage[index].isListed == false) {
             listings_storage[index].isListed = true;
+            sessionStorage.setItem("listings", JSON.stringify(listings_storage));
             return listings_storage[index];
         }
     }
