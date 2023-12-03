@@ -300,14 +300,20 @@
             }
         }*/
 
+        // if the listings are not in storage, store them
+        if (sessionStorage.getItem("listings") == null) {
+            storeInLocalStorage();
+        }
+
+        // update listings to be not listed for listing purposes
+        var stored_listings = JSON.parse(sessionStorage.getItem("listings"));
+        for (var i = 0; i < stored_listings.length; i++) {
+            stored_listings[i].isListed = false;
+        }
+        sessionStorage.setItem("listings", JSON.stringify(stored_listings));
+
+        // begin listing with 5 random listings
         for (let index = 1; index < 6; index++) {
-            if (sessionStorage.getItem("listings") == null) {
-                storeInLocalStorage();
-            }
-            var stored_listings = JSON.parse(sessionStorage.getItem("listings"));
-            for (var i = 0; i < stored_listings.length; i++) {
-                stored_listings[i].isListed = false;
-            }
             var ran = Math.floor(Math.random() * 10);
             var listing = getRandomListing(ran);
             while (listing.isListed) {

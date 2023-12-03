@@ -234,12 +234,12 @@ function updateListingsFromStorage() {
 }
 
 function getRandomListing(ran) {
-    var listings_storage = JSON.parse(sessionStorage.getItem("listings"))
+    var listings_storage = JSON.parse(sessionStorage.getItem("listings"));
     return listings_storage[ran];
 }
 
 function setListed(ran) {
-    var listings_storage = JSON.parse(sessionStorage.getItem("listings"))
+    var listings_storage = JSON.parse(sessionStorage.getItem("listings"));
     listings_storage[ran].isListed = true;
     sessionStorage.setItem("listings", JSON.stringify(listings_storage));
 }
