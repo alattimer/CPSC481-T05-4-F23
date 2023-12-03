@@ -4,20 +4,36 @@
     padding-right: 10px;
     float: left;
     color: #424f4d;
-    font-size: 20px;
-    text-decoration:underline;
+    font-size: 25px;
+    cursor: pointer;
+    font-size: 18px;
   }
 
   .SelectableLetterOutline {
-    position: absolute;
-    left: 33%;
+    display: flex;
+    justify-content: center;
     font-weight: bold;
   }
 
   .SelectRealtor{
     text-align: center;
-    color:rgb(136, 125, 125);
+    color:rgb(0, 0, 0);
     font-weight: bold;
-    font-size: 23px;
+    font-size: 21px;
   }
+
+  .SelectableLetter.selected {
+    color: rgb(185, 23, 163);
+}
+
+.SelectableLetters {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.SelectableLetter:hover {
+  color: blue; /* Change the color on hover */
+}
+
+
   

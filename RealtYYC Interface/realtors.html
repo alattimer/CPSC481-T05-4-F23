@@ -1,6 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+      <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const selectableLetters = document.querySelectorAll('.SelectableLetter');
+
+            selectableLetters.forEach(letter => {
+                letter.addEventListener('click', function () {
+                    // Check if the letter already has the 'selected' class
+                    const isSelected = this.classList.contains('selected');
+
+                    // Remove the 'selected' class from all letters
+                    selectableLetters.forEach(letter => letter.classList.remove('selected'));
+
+                    const selectedLetter = this.textContent;
+                    const targetElement = document.getElementById(selectedLetter);
+
+                    if (targetElement) {
+                        targetElement.scrollIntoView({ behavior: 'smooth' });
+                    }
+
+                    // If the letter didn't have the 'selected' class, add it along with changing the color
+                    if (!isSelected) {
+                        this.classList.add('selected');
+                    }
+                });
+            });
+        });
+    </script>
         <link rel="stylesheet" href="CSS Sheets/realtors.css">
         <!--BOOTSTRAP CDN-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
@@ -21,13 +48,13 @@
             </a>
 
             <form class="container-fluid">
-                <button class="btn btn-secondary" type="button">Home</button>
+            <button class="btn btn-secondary" type="button" onclick="location.href = 'index.html'">Back To Listings</button>
         </div>
     </nav>
     
     <!--Selectable letter search feature-->
     <div class="SelectableLetters">
-      <p class="SelectRealtor"> Filter by First Name</p>
+      <p class="SelectRealtor"> Select Realtor By First Name</p>
         <div class="SelectableLetterOutline">
           <div class="SelectableLetter">A</div>
           <div class="SelectableLetter">B</div>
@@ -58,20 +85,23 @@
         </div>
       </div>
       
-<body style="background-color:#a1e3df">
+<body style="background-color:rgb(206, 230, 236)">
     <!--This is the columns meant to contain the cards with realtor information. Made using bootstrap-->
     <div class="container top" style="padding-top: 2%">
         <div class="row align-items-start">
             <div class="col">
-            <div class="card mb-3" style="max-width: 540px;">
+            <div id = "B" class="card mb-3" style="max-width: 540px;">
                 <div class="row g-0">
                   <div class="col-md-4">
-                    <img src="House Images/Bella.jpg" class="img-fluid rounded-start" alt="...">
+                    <img src="Realtor Images/Bella.jpg" class="img-fluid rounded-start" alt="...">
                   </div>
                   <div class="col-md-8">
                     <div class="card-body">
                       <h5 class="card-title">Bella</h5>
-                      <p class="card-text">Your best investment opportunity.<br> <a href="https://www.linkedin.com/in/bella-a-942897105/?originalSubdomain=ca">Linkedin</a></p>
+                      <p class="card-text">Your best investment opportunity.<br><br><strong>Number of Transactions</strong>
+                        <br>In the past year, Bella successfully closed 20 property transactions, including residential homes and some commercial properties.<br>
+                        <br><strong>Client Satisfaction Rating</strong><br> 4.5/5 Based on an annual review conducted by RealtYYC.<br>
+                      </p><a href="https://www.linkedin.com/in/bella-a-942897105/?originalSubdomain=ca">Linkedin</a>
                       <p class="card-text"><small class="text-muted">587-289-8545 <br> Bella@REALTYYC.ca</small></p>
                     </div>
                   </div>
@@ -79,16 +109,19 @@
               </div>
           </div>
           <div class="col">
-            <div class="card mb-3" style="max-width: 540px;height: 210px;">
+            <div id = "D" class="card mb-3" style="max-width: 540px;">
                 <div class="row g-0">
                   <div class="col-md-4">
-                    <img src="House Images/Drew.jpg" class="img-fluid rounded-start" alt="...">
+                    <img src="Realtor Images/Drew.jpg" class="img-fluid rounded-start" alt="...">
                   </div>
                   <div class="col-md-8">
                     <div class="card-body">
                       <h5 class="card-title">Drew</h5>
-                      <p class="card-text">Your Concern Is My Priority.<br> <a href="https://www.linkedin.com/in/bella-a-942897105/?originalSubdomain=ca">Linkedin</a></p>
-                      <p class="card-text"><small class="text-muted">403-585-1651 <br>Drew@REALTYYC.ca</small></p>
+                      <p class="card-text">Your concern is my priority.<br><br><strong>Number of Transactions</strong>
+                        <br>Drew facilitated the sale of 12 residential properties, including single-family homes and condominiums.<br>
+                        <br><strong>Client Satisfaction Rating</strong><br> 4.3/5 Based on an annual review done by RealtYYC.<br>
+                      </p><a href="https://ca.linkedin.com/in/drewgreen">Linkedin</a>
+                      <p class="card-text"><small class="text-muted">587-564-8562 <br> Drew@REALTYYC.ca</small></p>
                     </div>
                   </div>
                 </div>
@@ -98,14 +131,16 @@
             <div class="card mb-3" style="max-width: 540px;">
                 <div class="row g-0">
                   <div class="col-md-4">
-                    <img src="House Images/Getsy.jpg" class="img-fluid rounded-start" alt="...">
+                    <img src="Realtor Images/Getsy.jpg" class="img-fluid rounded-start" alt="...">
                   </div>
                   <div class="col-md-8">
                     <div class="card-body">
-                      <h5 class="card-title">Getsy</h5>
-                      <p class="card-text">Great Things Come Out Of All My Transactions<br> <a href="https://www.linkedin.com/in/bella-a-942897105/?originalSubdomain=ca">Linkedin</a>
-                    </p>
-                      <p class="card-text"><small class="text-muted">403-157-2418<br> Getsy@REALTYYC.ca</small></p>
+                      <h5 class="card-title">Deanna</h5>
+                      <p class="card-text">Great things come out of all my transactions.<br><br><strong>Number of Transactions</strong>
+                        <br> In the past year, Deanna successfully closed 10 luxury home deals.<br>
+                        <br><strong>Client Satisfaction Rating</strong><br> 4.3/5 Based on an annual review done by RealtYYC.<br>
+                      </p><a href="https://ca.linkedin.com/in/drewgreen">Linkedin</a>
+                      <p class="card-text"><small class="text-muted">587-564-5422 <br> Deanna@REALTYYC.ca</small></p>
                     </div>
                   </div>
                 </div>
@@ -114,33 +149,38 @@
         </div>
         <div class="row align-items-center">
           <div class="col">
-            <div class="card mb-3" style="max-width: 540px;height:210px;">
+            <div id = "H" class="card mb-3" style="max-width: 540px;">
                 <div class="row g-0">
                   <div class="col-md-4">
-                    <img src="House Images/Hassan.jpg" class="img-fluid rounded-start" alt="...">
+                    <img src="Realtor Images/Hassan.jpg" class="img-fluid rounded-start" alt="...">
                   </div>
                   <div class="col-md-8">
                     <div class="card-body">
                       <h5 class="card-title">Hassan</h5>
-                      <p class="card-text">If you think it’s expensive to hire a professional, wait till you hire an amateur. <br> <a href="https://www.linkedin.com/in/bella-a-942897105/?originalSubdomain=ca">Linkedin</a>
-                    </p>
-                      <p class="card-text"><small class="text-muted">587-543-2315<br>Hassan@REALTYYC.ca</small></p>
+                      <p class="card-text">If you think it's expensive to hire a professional, wait till you hire an amateur.<br><br><strong>Number of Transactions</strong>
+                        <br>In the past year, Hassan successfully closed 25 residential property transactions in various suburban neighborhoods.<br>
+                        <br><strong>Client Satisfaction Rating</strong><br> 4.6/5 Based on an annual review conducted by RealtYYC.<br>
+                      </p><a href="https://www.linkedin.com/in/bella-a-942897105/?originalSubdomain=ca">Linkedin</a>
+                      <p class="card-text"><small class="text-muted">587-212-4652 <br> Hassan@REALTYYC.ca</small></p>
                     </div>
                   </div>
                 </div>
               </div>
           </div>
           <div class="col">
-            <div class="card mb-3" style="max-width: 540px;height:210px;">
+            <div id = "H" class="card mb-3" style="max-width: 540px; height:470px;">
                 <div class="row g-0">
                   <div class="col-md-4">
-                    <img src="House Images/Jamie.jpg" class="img-fluid rounded-start" alt="Photo of a realtor">
+                    <img src="Realtor Images/Jamie.jpg" class="img-fluid rounded-start" alt="...">
                   </div>
                   <div class="col-md-8">
                     <div class="card-body">
-                      <h5 class="card-title">Jamie</h5>
-                      <p class="card-text">Creating Opportunities. Building Your Future.<br> <a href="https://www.linkedin.com/in/bella-a-942897105/?originalSubdomain=ca">Linkedin</a></p>
-                      <p class="card-text"><small class="text-muted">587-165-4565<br>Jamie@REALTYYC.ca</small></p>
+                      <h5 class="card-title">Harry</h5>
+                      <p class="card-text">Creating Opportunities. Building your future.<br><br><br><strong>Number of Transactions</strong>
+                        <br>In the past year, Harry successfully closed 30 real estate transactions within the urban market. <br><br>
+                        <br><strong>Client Satisfaction Rating</strong><br> 4.2/5 Based on an annual review conducted by RealtYYC.<br>
+                      </p><a href="https://www.linkedin.com/in/bella-a-942897105/?originalSubdomain=ca">Linkedin</a>
+                      <p class="card-text"><small class="text-muted">587-153-8642 <br> Harry@REALTYYC.ca</small></p>
                     </div>
                   </div>
                 </div>
@@ -151,7 +191,7 @@
             <div class="card mb-3" style="max-width: 540px;height:210px;">
                 <div class="row g-0">
                   <div class="col-md-4">
-                    <img src="House Images/Jessica.jpg" class="img-fluid rounded-start" alt="...">
+                    <img src="Realtor Images/Jessica.jpg" class="img-fluid rounded-start" alt="...">
                   </div>
                   <div class="col-md-8">
                     <div class="card-body">
@@ -169,12 +209,12 @@
             <div class="card mb-3" style="max-width: 540px; height:210px;">
                 <div class="row g-0">
                   <div class="col-md-4">
-                    <img src="House Images/Paige.jpg" class="img-fluid rounded-start" alt="...">
+                    <img src="Realtor Images/Paige.jpg" class="img-fluid rounded-start" alt="...">
                   </div>
                   <div class="col-md-8">
                     <div class="card-body">
                       <h5 class="card-title">Paige</h5>
-                      <p class="card-text">A house is made of bricks and beams. A home is made of hopes and dreams. We’ll help you find your home.<br> <a href="https://www.linkedin.com/in/bella-a-942897105/?originalSubdomain=ca">Linkedin</a></p>
+                      <p class="card-text">A home is made of hopes and dreams. We’ll help you find your home.<br> <a href="https://www.linkedin.com/in/bella-a-942897105/?originalSubdomain=ca">Linkedin</a></p>
                       <p class="card-text"><small class="text-muted">403-897-5724 <br> Paige@REALTYYC.ca</small></p>
                     </div>
                   </div>
@@ -185,7 +225,7 @@
             <div class="card mb-3" style="max-width: 540px; height:210px;">
                 <div class="row g-0">
                   <div class="col-md-4">
-                    <img src="House Images/Sam.jpg" class="img-fluid rounded-start" alt="Photo of a realtor">
+                    <img src="Realtor Images/Sam.jpg" class="img-fluid rounded-start" alt="Photo of a realtor">
                   </div>
                   <div class="col-md-8">
                     <div class="card-body">
@@ -203,7 +243,7 @@
             <div class="card mb-3" style="max-width: 540px; height: 210px;">
                 <div class="row g-0">
                   <div class="col-md-4">
-                    <img src="House Images/Vaughn.jpg" class="img-fluid rounded-start" alt="...">
+                    <img src="Realtor Images/Vaughn.jpg" class="img-fluid rounded-start" alt="...">
                   </div>
                   <div class="col-md-8">
                     <div class="card-body">
@@ -216,6 +256,166 @@
               </div>
           </div>
         </div>
+
+        <div class="row align-items-end">
+          <div class="col">
+            <div class="card mb-3" style="max-width: 540px; height:210px;">
+                <div class="row g-0">
+                  <div class="col-md-4">
+                    <img src="Realtor Images/Paige.jpg" class="img-fluid rounded-start" alt="...">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">Paige</h5>
+                      <p class="card-text">A home is made of hopes and dreams. We’ll help you find your home.<br> <a href="https://www.linkedin.com/in/bella-a-942897105/?originalSubdomain=ca">Linkedin</a></p>
+                      <p class="card-text"><small class="text-muted">403-897-5724 <br> Paige@REALTYYC.ca</small></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+          <div class="col">
+            <div class="card mb-3" style="max-width: 540px; height:210px;">
+                <div class="row g-0">
+                  <div class="col-md-4">
+                    <img src="Realtor Images/Sam.jpg" class="img-fluid rounded-start" alt="Photo of a realtor">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">Sam</h5>
+                      <p class="card-text">Don’t buy from me unless you are ready for success.<br> <a href="https://www.linkedin.com/in/bella-a-942897105/?originalSubdomain=ca">Linkedin</a>
+                    </p>
+                      <p class="card-text"><small class="text-muted">403-290-38923<br>Sam@REALTYYC.ca
+                    </small></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+          <div class="col">
+            <div class="card mb-3" style="max-width: 540px; height: 210px;">
+                <div class="row g-0">
+                  <div class="col-md-4">
+                    <img src="Realtor Images/Vaughn.jpg" class="img-fluid rounded-start" alt="...">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">Vaughn</h5>
+                      <p class="card-text">If you have the opportunity to suggest a real estate agent to anyone, think of me.<br> <a href="https://www.linkedin.com/in/bella-a-942897105/?originalSubdomain=ca">Linkedin</a></p>
+                      <p class="card-text"><small class="text-muted">403-897-8645 <br> Vaughn@REALTYYC.ca</small></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+
+        <div class="row align-items-end">
+          <div class="col">
+            <div class="card mb-3" style="max-width: 540px; height:210px;">
+                <div class="row g-0">
+                  <div class="col-md-4">
+                    <img src="Realtor Images/Paige.jpg" class="img-fluid rounded-start" alt="...">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">Paige</h5>
+                      <p class="card-text">A home is made of hopes and dreams. We’ll help you find your home.<br> <a href="https://www.linkedin.com/in/bella-a-942897105/?originalSubdomain=ca">Linkedin</a></p>
+                      <p class="card-text"><small class="text-muted">403-897-5724 <br> Paige@REALTYYC.ca</small></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+          <div class="col">
+            <div class="card mb-3" style="max-width: 540px; height:210px;">
+                <div class="row g-0">
+                  <div class="col-md-4">
+                    <img src="Realtor Images/Sam.jpg" class="img-fluid rounded-start" alt="Photo of a realtor">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">Sam</h5>
+                      <p class="card-text">Don’t buy from me unless you are ready for success.<br> <a href="https://www.linkedin.com/in/bella-a-942897105/?originalSubdomain=ca">Linkedin</a>
+                    </p>
+                      <p class="card-text"><small class="text-muted">403-290-38923<br>Sam@REALTYYC.ca
+                    </small></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+          <div class="col">
+            <div class="card mb-3" style="max-width: 540px; height: 210px;">
+                <div class="row g-0">
+                  <div class="col-md-4">
+                    <img src="Realtor Images/Vaughn.jpg" class="img-fluid rounded-start" alt="...">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">Vaughn</h5>
+                      <p class="card-text">If you have the opportunity to suggest a real estate agent to anyone, think of me.<br> <a href="https://www.linkedin.com/in/bella-a-942897105/?originalSubdomain=ca">Linkedin</a></p>
+                      <p class="card-text"><small class="text-muted">403-897-8645 <br> Vaughn@REALTYYC.ca</small></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+
+        <div class="row align-items-end">
+          <div class="col">
+            <div class="card mb-3" style="max-width: 540px; height:210px;">
+                <div class="row g-0">
+                  <div class="col-md-4">
+                    <img src="Realtor Images/Paige.jpg" class="img-fluid rounded-start" alt="...">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">Paige</h5>
+                      <p class="card-text">A home is made of hopes and dreams. We’ll help you find your home.<br> <a href="https://www.linkedin.com/in/bella-a-942897105/?originalSubdomain=ca">Linkedin</a></p>
+                      <p class="card-text"><small class="text-muted">403-897-5724 <br> Paige@REALTYYC.ca</small></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+          <div class="col">
+            <div class="card mb-3" style="max-width: 540px; height:210px;">
+                <div class="row g-0">
+                  <div class="col-md-4">
+                    <img src="Realtor Images/Sam.jpg" class="img-fluid rounded-start" alt="Photo of a realtor">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">Sam</h5>
+                      <p class="card-text">Don’t buy from me unless you are ready for success.<br> <a href="https://www.linkedin.com/in/bella-a-942897105/?originalSubdomain=ca">Linkedin</a>
+                    </p>
+                      <p class="card-text"><small class="text-muted">403-290-38923<br>Sam@REALTYYC.ca
+                    </small></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+          <div class="col">
+            <div id = "V" class="card mb-3" style="max-width: 540px; height: 210px;">
+                <div class="row g-0">
+                  <div class="col-md-4">
+                    <img src="Realtor Images/Vaughn.jpg" class="img-fluid rounded-start" alt="...">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">Vaughn</h5>
+                      <p class="card-text">If you have the opportunity to suggest a real estate agent to anyone, think of me.<br> <a href="https://www.linkedin.com/in/bella-a-942897105/?originalSubdomain=ca">Linkedin</a></p>
+                      <p class="card-text"><small class="text-muted">403-897-8645 <br> Vaughn@REALTYYC.ca</small></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+
       </div>
     </body>
 </html>
