@@ -29,6 +29,7 @@
                 <input type="text" placeholder="Search By Address...">
                 <button class="btn btn-secondary" type="button">Search</button>
                 <button class="btn btn-secondary" type="button">How To List</button>
+                <button class="btn btn-secondary" type="button" onclick="location.href = 'favoritedListings.html'">View Favorited Listings</button>
                 <button class="btn btn-secondary" type="button" onclick="location.href = 'realtors.html'">Current Realtors</button>
                 <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                     data-bs-toggle="dropdown" aria-expanded="false">
@@ -275,17 +276,20 @@
         window.onload = updateListingsFromStorage();
         */
 
-        for(let index = 1; index < getListingsSize(); index++)
+        /*var listing = JSON.parse(sessionStorage.getItem("listings"));
+        for(let index = 0; index < listing.length; index++)
         {
-            var listing = getListingByID(index);
-            if(listing.isFavorited == true)
+            if(listing[index].isFavorited == true)
             {
-                window.aler(index + " is favorited!");
+                window.alert(listing[index].listingID + " is favorited!");
             }
-        }
+        }*/
         
-
         for (let index = 1; index < 6; index++) {
+            if(sessionStorage.getItem("listings") === null)
+            {
+                storeInLocalStorage();
+            }
             var ran = Math.floor(Math.random() * 10);
             var listing = getRandomListing(ran);
             while (listing.isListed) {

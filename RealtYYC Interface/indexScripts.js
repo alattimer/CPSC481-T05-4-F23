@@ -224,6 +224,7 @@ var listings = [
         backyard: true
     }];
 
+// Functions to get and store local storage
 function storeInLocalStorage() {
     sessionStorage.setItem("listings", JSON.stringify(listings));
 }
@@ -233,7 +234,8 @@ function updateListingsFromStorage() {
 }
 
 function getRandomListing(ran) {
-    return listings[ran];
+    var listings_storage = JSON.parse(sessionStorage.getItem("listings"))
+    return listings_storage[ran];
 }
 
 function setListed(ran) {
@@ -249,16 +251,18 @@ function getListingsSize() {
 }
 
 function getUnlistedListing() {
-    for (let index = 0; index < listings.length; index++) {
-        if (listings[index].isListed == false) {
-            listings[index].isListed = true;
-            return listings[index];
+    var listings_storage = JSON.parse(sessionStorage.getItem("listings"))
+    for (let index = 0; index < listings_storage.length; index++) {
+        if (listings_storage[index].isListed == false) {
+            listings_storage[index].isListed = true;
+            return listings_storage[index];
         }
     }
 }
 
 function getListingByID(id) {
-    var list = listings.find((l) => l.listingID === parseInt(id));
+    var listings_storage = JSON.parse(sessionStorage.getItem("listings"))
+    var list = listings_storage.find((l) => l.listingID === parseInt(id));
     return list;
 }
 
@@ -427,15 +431,6 @@ function resetFilters() {
 
 //const filteredListings = filterListings(listings);
 window.onload = function () {
-
-    // Load the array into session storage ONCE, if its already there update from session storage
-    if (JSON.parse(sessionStorage.getItem("listings")) === null) {
-        storeInLocalStorage();
-    }
-    else {
-        updateListingsFromStorage()
-    }
-
     document.getElementById('filter').addEventListener('click', filterListings);
     document.getElementById('reset').addEventListener('click', resetFilters);
 }
