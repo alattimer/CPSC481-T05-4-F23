@@ -427,8 +427,6 @@ function resetFilters() {
 
 //const filteredListings = filterListings(listings);
 window.onload = function () {
-    document.getElementById('filter').addEventListener('click', filterListings);
-    document.getElementById('reset').addEventListener('click', resetFilters);
 
     // Load the array into session storage ONCE, if its already there update from session storage
     if (JSON.parse(sessionStorage.getItem("listings")) === null) {
@@ -437,4 +435,7 @@ window.onload = function () {
     else {
         updateListingsFromStorage()
     }
+
+    document.getElementById('filter').addEventListener('click', filterListings);
+    document.getElementById('reset').addEventListener('click', resetFilters);
 }
