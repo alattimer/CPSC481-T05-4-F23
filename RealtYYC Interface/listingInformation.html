@@ -160,7 +160,20 @@
                     document.getElementById("favorite").disabled = true;
                     document.getElementById("unfavorite").disabled = false;
                     sessionStorage.setItem("listings", JSON.stringify(stored_listings));
-                    updateListingsFromStorage();
+                }
+            }
+        }
+
+        function UnFavoriteTheListing()
+        {
+            for(var i = 0; i < stored_listings.length; i++)
+            {
+                if(stored_listings[i].listingID == listing.listingID)
+                {
+                    stored_listings[i].isFavorited = false;
+                    document.getElementById("favorite").disabled = false;
+                    document.getElementById("unfavorite").disabled = true;
+                    sessionStorage.setItem("listings", JSON.stringify(stored_listings));
                 }
             }
         }
