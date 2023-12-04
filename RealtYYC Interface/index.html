@@ -40,8 +40,8 @@
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" style="width:700px;">
                     <form class="px-4 py-3">
                         <p style="margin-left: 20px;"><b>Advanced Search Filters:</p>
-                        <select style="margin-left: 20px; width: 60%;" id="type" class="form-select"
-                            aria-label="Home Type">
+                        <p style="margin-left: 20px; color: red;" hidden="true" id="invalidSearch">Please ensure your minimum and maxmium price and size ranges are correct</p>
+                        <select style="margin-left: 20px; width: 60%;" id="type" class="form-select" aria-label="Home Type">
                             <option selected>Home Type</option>
                             <option>House</option>
                             <option>Condominium</option>
@@ -105,7 +105,7 @@
                         <input class="form-check-input" type="checkbox" id="pool" name="pool">
                         <button
                             style="margin-left:auto; margin-right:auto; margin-bottom:5px; display:block; width:40%;"
-                            type="button" id="filter" class="btn btn-primary">Search</button>
+                            type="button" id="filter" onclick="checkIfValid()"class="btn btn-primary">Search</button>
                         <button style="margin-left:auto; margin-right:auto; display:block; width:40%;" type="button"
                             id="reset" onclick="event.stopPropagation();" class="btn btn-primary">Reset Filters</button>
 
@@ -139,6 +139,24 @@
                             maxSizeSlider.oninput = function () {
                                 maxSizeOutput.innerHTML = this.value;
                             }
+
+                            function checkIfValid()
+                            {
+                                var minPriceSlider = document.getElementById("MinimumPrice");
+                                var maxPriceSlider = document.getElementById("MaximumPrice");
+                                var minSizeSlider = document.getElementById("MinimumSize");
+                                var maxSizeSlider = document.getElementById("MaximumSize");
+
+                                var minPrice = minPriceSlider.value;
+                                var maxPrice = maxPriceSlider.value;
+                                var minSize = minSizeSlider.value;
+                                var maxSize = maxSizeSlider.value;
+
+                                if(minPrice >= maxPrice || minSize >= maxSize)
+                                {
+                                    event.stopPropagation()
+                                }
+                            }
                         </script>
 
                     </form>
@@ -158,21 +176,18 @@
             </div>
             <div class="col-sm-9" id="listing1">
                 <div class="row">
-                    <div class="col-sm-3 fs-4" id="listing-1-price">
+                    <div class="col-sm-3 fw-bold fs-2" id="listing-1-price">
                     </div>
-                    <div class="col-sm-6 fs-4 text-center" id="listing-1-location">
+                    <div class="col-sm-7 fw-bold fs-3 text-center" id="listing-1-location">
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col" id="listing-1-desc">
+                    <div class="col fs-3" id="listing-1-desc">
                     </div>
                 </div>
                 <div class="row">
                     <button name="view-1" type="button" class="btn btn-primary"
-                    style="width: 200px; margin-top: 20px;" 
-                    onclick='saveListing(document.getElementsByName("view-1")[0].id)'>View Listing</button>
-
-
+                        onclick='saveListing(document.getElementsByName("view-1")[0].id)'>View Listing</button>
                 </div>
             </div>
         </div>
@@ -184,18 +199,17 @@
             </div>
             <div class="col-sm-9">
                 <div class="row">
-                    <div class="col-sm-3 fs-4" id="listing-2-price">
+                    <div class="col-sm-3 fw-bold fs-2" id="listing-2-price">
                     </div>
-                    <div class="col-sm-6 fs-4 text-center" id="listing-2-location">
+                    <div class="col-sm-7 fw-bold fs-3 text-center" id="listing-2-location">
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col" id="listing-2-desc">
+                    <div class="col fs-3" id="listing-2-desc">
                     </div>
                 </div>
                 <div class="row">
                     <button name="view-2" type="button" class="btn btn-primary"
-                    style="width: 200px; margin-top: 20px;"
                         onclick='saveListing(document.getElementsByName("view-2")[0].id)'>View Listing</button>
                 </div>
             </div>
@@ -208,18 +222,17 @@
             </div>
             <div class="col-sm-9">
                 <div class="row">
-                    <div class="col-sm-3 fs-4" id="listing-3-price">
+                    <div class="col-sm-3 fw-bold fs-2" id="listing-3-price">
                     </div>
-                    <div class="col-sm-6 fs-4 text-center" id="listing-3-location">
+                    <div class="col-sm-7 fw-bold fs-3 text-center" id="listing-3-location">
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col" id="listing-3-desc">
+                    <div class="col fs-3" id="listing-3-desc">
                     </div>
                 </div>
                 <div class="row">
                     <button name="view-3" type="button" class="btn btn-primary"
-                    style="width: 200px; margin-top: 20px;"
                         onclick='saveListing(document.getElementsByName("view-3")[0].id)'>View Listing</button>
                 </div>
             </div>
@@ -232,18 +245,17 @@
             </div>
             <div class="col-sm-9">
                 <div class="row">
-                    <div class="col-sm-3 fs-4" id="listing-4-price">
+                    <div class="col-sm-3 fw-bold fs-2" id="listing-4-price">
                     </div>
-                    <div class="col-sm-6 fs-4 text-center" id="listing-4-location">
+                    <div class="col-sm-7 fw-bold fs-3 text-center" id="listing-4-location">
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col" id="listing-4-desc">
+                    <div class="col fs-3" id="listing-4-desc">
                     </div>
                 </div>
                 <div class="row">
                     <button name="view-4" type="button" class="btn btn-primary"
-                    style="width: 200px; margin-top: 20px;"
                         onclick='saveListing(document.getElementsByName("view-4")[0].id)'>View Listing</button>
                 </div>
             </div>
@@ -256,18 +268,17 @@
             </div>
             <div class="col-sm-9">
                 <div class="row">
-                    <div class="col-sm-3 fs-4" id="listing-5-price">
+                    <div class="col-sm-3 fw-bold fs-2" id="listing-5-price">
                     </div>
-                    <div class="col-sm-6 fs-4 text-center" id="listing-5-location">
+                    <div class="col-sm-7 fw-bold fs-3 text-center" id="listing-5-location">
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col" id="listing-5-desc">
+                    <div class="col fs-3" id="listing-5-desc">
                     </div>
                 </div>
                 <div class="row flex-grow-1">
                     <button name="view-5" type="button" class="btn btn-primary"
-                    style="width: 200px; margin-top: 20px;"
                         onclick='saveListing(document.getElementsByName("view-5")[0].id)'>View Listing</button>
                 </div>
             </div>
@@ -277,7 +288,7 @@
 
     <div class="container-fluid text-center">
         <div class="row">
-            <button id="load-more" class="btn btn-success" onclick="loadMoreListings()">Load More Listings</button>
+            <button id="load-more" class="btn btn-danger" onclick="loadMoreListings()">Load More Listings</button>
         </div>
     </div>
 
@@ -389,14 +400,14 @@
 
                     //CREATE PRICE DIV
                     const priceDiv = document.createElement("div");
-                    priceDiv.setAttribute("class", "col-sm-3 fs-4");
+                    priceDiv.setAttribute("class", "col-sm-3 fw-bold fs-2");
                     priceDiv.setAttribute("id", "listing-" + int + "-price");
 
                     document.getElementById("listing-" + int + "-priceLoc").append(priceDiv);
 
                     //CREAT LOCATION DIV
                     const locDiv = document.createElement("div");
-                    locDiv.setAttribute("class", "col-sm-6 fs-4 text-center");
+                    locDiv.setAttribute("class", "col-sm-7 fw-bold fs-3 text-center");
                     locDiv.setAttribute("id", "listing-" + int + "-location");
 
                     document.getElementById("listing-" + int + "-priceLoc").append(locDiv);
@@ -410,7 +421,7 @@
 
                     //CREATE THE DESCRIPTION DIV
                     const descInfoDiv = document.createElement("div");
-                    descInfoDiv.setAttribute("class", "col");
+                    descInfoDiv.setAttribute("class", "col fs-3");
                     descInfoDiv.setAttribute("id", "listing-" + int + "-desc");
 
                     document.getElementById("listing-" + int + "-dec").append(descInfoDiv);
@@ -429,10 +440,6 @@
                     viewButton.setAttribute("name", "view-" + int);
                     viewButton.onclick = function () { saveListing(document.getElementsByName("view-" + int)[0].id) }
                     viewButton.innerHTML = "View Listing";
-                    // Set width and height
-                    viewButton.style.width = "200px";
-                    viewButton.style.height = "40px";
-                    viewButton.style.marginTop = "20px";
 
                     document.getElementById("listing-" + int + "-btn").append(viewButton);
 
@@ -445,7 +452,6 @@
                 } else {
                     document.getElementById("load-more").innerHTML = "Out Of Listings!";
                     document.getElementById("load-more").disabled = true;
-                    document.getElementById("load-more").classList.add("btn-danger");
                     console.log("out of listings!");
                     break;
                 }
