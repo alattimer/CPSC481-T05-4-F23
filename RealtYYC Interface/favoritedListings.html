@@ -150,8 +150,19 @@
             }
 
             if (num_favorites == 0) {
-                document.getElementById("listings-container").innerHTML = "<p class='text-center fw-bold fs-1 text-danger'>NO LISTINGS TO SHOW</>";
+                const container = document.getElementById("listings-container");
+            
+                // Create a div element to act as the container with a blue box
+                const messageContainer = document.createElement("div");
+                messageContainer.setAttribute("class", "message-container");
+            
+                // Set the message content
+                messageContainer.innerHTML = "<p class='text-center fw-bold fs-1 text-col'>NO LISTINGS HAVE BEEN FAVORITED</p>";
+            
+                // Append the message container to the main container
+                container.appendChild(messageContainer);
             }
+                
         }
 
         function saveListing(id) {
