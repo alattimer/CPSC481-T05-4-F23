@@ -277,7 +277,7 @@
 
     <div class="container-fluid text-center">
         <div class="row">
-            <button id="load-more" class="btn btn-danger" onclick="loadMoreListings()">Load More Listings</button>
+            <button id="load-more" class="btn btn-success" onclick="loadMoreListings()">Load More Listings</button>
         </div>
     </div>
 
@@ -445,6 +445,7 @@
                 } else {
                     document.getElementById("load-more").innerHTML = "Out Of Listings!";
                     document.getElementById("load-more").disabled = true;
+                    document.getElementById("load-more").classList.add("btn-danger");
                     console.log("out of listings!");
                     break;
                 }
