@@ -92,14 +92,14 @@
 
                     //CREATE PRICE DIV
                     const priceDiv = document.createElement("div");
-                    priceDiv.setAttribute("class", "col-sm-3 fw-bold fs-2");
+                    priceDiv.setAttribute("class", "col-sm-3 fw-bold fs-4");
                     priceDiv.setAttribute("id", "listing-" + i + "-price");
 
                     document.getElementById("listing-" + i + "-priceLoc").append(priceDiv);
 
                     //CREAT LOCATION DIV
                     const locDiv = document.createElement("div");
-                    locDiv.setAttribute("class", "col-sm-7 fw-bold fs-3 text-center");
+                    locDiv.setAttribute("class", "col-sm-6 fw-bold fs-4 text-center");
                     locDiv.setAttribute("id", "listing-" + i + "-location");
 
                     document.getElementById("listing-" + i + "-priceLoc").append(locDiv);
@@ -113,7 +113,7 @@
 
                     //CREATE THE DESCRIPTION DIV
                     const descInfoDiv = document.createElement("div");
-                    descInfoDiv.setAttribute("class", "col fs-3");
+                    descInfoDiv.setAttribute("class", "col");
                     descInfoDiv.setAttribute("id", "listing-" + i + "-desc");
 
                     document.getElementById("listing-" + i + "-dec").append(descInfoDiv);
@@ -132,6 +132,10 @@
                     viewButton.setAttribute("name", "view-" + i);
                     viewButton.onclick = function () { saveListing(document.getElementsByName("view-" + i)[0].id) }
                     viewButton.innerHTML = "View Listing";
+                    // Set width and height
+                    viewButton.style.width = "200px";
+                    viewButton.style.height = "40px";
+                    viewButton.style.marginTop = "20px";
 
                     document.getElementById("listing-" + i + "-btn").append(viewButton);
 
@@ -146,8 +150,19 @@
             }
 
             if (num_favorites == 0) {
-                document.getElementById("listings-container").innerHTML = "<p class='text-center fw-bold fs-1 text-danger'>NO LISTINGS TO SHOW</>";
+                const container = document.getElementById("listings-container");
+            
+                // Create a div element to act as the container with a blue box
+                const messageContainer = document.createElement("div");
+                messageContainer.setAttribute("class", "message-container");
+            
+                // Set the message content
+                messageContainer.innerHTML = "<p class='text-center fw-bold fs-1 text-col'>NO LISTINGS HAVE BEEN FAVORITED</p>";
+            
+                // Append the message container to the main container
+                container.appendChild(messageContainer);
             }
+                
         }
 
         function saveListing(id) {
