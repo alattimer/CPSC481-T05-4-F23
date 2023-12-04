@@ -1,5 +1,12 @@
 # CPSC481-T05-4-F23
 
 Group Members:
+Chowdhury, Fatema
+Greene, Brandon
+Lattimer, Andrew
+Vu, Nam Nguyen
+Waterstreet, Jaxson
 
-How to use:
+Functions Implemented and How to Use:
+- 
+

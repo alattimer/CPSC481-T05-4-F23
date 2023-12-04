@@ -362,11 +362,11 @@ function filterListings() {
         }
     }
     console.log(filteredListings)
-    //TODO: Somehow convert these filteredListings to HTML
-    // I added the conversion in the function below
 
-    var returnedHTMLString = HTMLConversion(filteredListings);
-    return returnedHTMLString;
+    criteria = [minPrice, maxPrice, minSize, maxSize, type, beds, baths, garages, bYard, base, AC, fplace, dWay, pool];
+    sessionStorage.setItem("filter-criteria", JSON.stringify(criteria));
+    sessionStorage.setItem("filtered-listings", JSON.stringify(filteredListings));
+    location.href = "filteredListings.html"
 }
 
 function HTMLConversion(filteredListings) {
