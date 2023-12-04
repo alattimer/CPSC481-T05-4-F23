@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!--BOOTSTRAP CDN-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!--END OF BOOTSTRAP CDN-->
+    <script type="text/javascript" src="indexScripts.js"></script>
+    <link rel="stylesheet" href="CSS Sheets/index.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body id="body-overrides">
+
+    <!--THIS ROW IS FOR THE TOP OF THE WEBPAGE, USED FOR THE REALTYYC BANNER AND MENU OPTIONS-->
+    <nav class="navbar navbar-expand-sm">
+        <div class="container-fluid">
+
+            <a class="navbar-brand" href="#">
+                <img src="House Images/logo.png" class="img-fluid" alt="...">
+            </a>
+
+            <form class="container-fluid">
+                <button class="btn btn-secondary" type="button" onclick="location.href = 'index.html'">Back To
+                    Home Page</button>
+            </form>
+        </div>
+    </nav>
+
+    <div class="container-fluid overflow-hidden" id="search-criteria" style="background-color: white;">
+        <p style="margin-left: 20px; margin-top: 10px;"><b>Search results based on the following criteria:</b></p>
+        <p style="margin-left: 20px;" id="minPrice"></p>
+        <p style="margin-left: 20px;" id="minSize"></p>
+        <p style="margin-left: 20px;" id="type"></p> 
+        <p style="margin-left: 20px;" id="beds"></p>
+        <p style="margin-left: 20px;" id="garages"></p>
+        <p style="margin-left: 20px;" id="bYard"></p>
+        <p style="margin-left: 20px;" id="base"></p>
+        <p style="margin-left: 20px;" id="AC"></p>
+        <p style="margin-left: 20px;" id="fplace"></p>
+        <p style="margin-left: 20px;" id="dWay"></p>
+        <p style="margin-left: 20px;" id="pool"></p>
+        <p style="margin-left: 20px; margin-top: 10px; font-weight: bold; text-decoration: underline;" id="noOfListings"></p>
+
+        <script>
+            var stored_criteria = JSON.parse(sessionStorage.getItem("filter-criteria"));
+            document.getElementById("minPrice").innerHTML = "Minimum Price: " + stored_criteria[0] + " $,   Maximum Price: " + stored_criteria[1] + " $";
+            document.getElementById("minSize").innerHTML = "Minimum Size: " + stored_criteria[2] + " sq. ft.,   Maximum Size: " + stored_criteria[3] + " sq. ft.";
+            if(stored_criteria[4] == "Home Type")
+            {
+                document.getElementById("type").innerHTML = "Home Type: Unspecified";
+            }
+            else
+            {
+                document.getElementById("type").innerHTML = "Home Type: " + stored_criteria[4];
+            }
+            if(stored_criteria[5] == null)
+            {
+                stored_criteria[5] = "One";
+            }
+            if(stored_criteria[6] == null)
+            {
+                stored_criteria[6] = "One";
+            }
+            if(stored_criteria[7] == null)
+            {
+                stored_criteria[7] = "Zero";
+            }
+            document.getElementById("beds").innerHTML = "Number of Beds: " + stored_criteria[5] + " or more,    Number of Bathrooms: " + stored_criteria[6] + " or more";
+            document.getElementById("garages").innerHTML = "Number of Garages: " + stored_criteria[7] + " or more";
+
+            if(stored_criteria[8])
+            {
+                document.getElementById("bYard").innerHTML = "Backyard: Backyard is required";
+            }
+            else
+            {
+                document.getElementById("bYard").innerHTML = "Backyard: Backyard not required";
+            }
+
+            if(stored_criteria[9])
+            {
+                document.getElementById("base").innerHTML = "Finished Basement: Finished basement is required";
+            }
+            else
+            {
+                document.getElementById("base").innerHTML = "Finished Basement: Finished basement not required";
+            }
+
+            if(stored_criteria[10])
+            {
+                document.getElementById("AC").innerHTML = "Air Conditioning: Air conditioning is required";
+            }
+            else
+            {
+                document.getElementById("AC").innerHTML = "Air Conditioning: Air conditioning not required";
+            }
+
+            if(stored_criteria[11])
+            {
+                document.getElementById("fplace").innerHTML = "Fireplace: Fireplace is required";
+            }
+            else
+            {
+                document.getElementById("fplace").innerHTML = "Fireplace: Fireplace not required";
+            }
+
+            if(stored_criteria[12])
+            {
+                document.getElementById("dWay").innerHTML = "Driveway: Driveway is required";
+            }
+            else
+            {
+                document.getElementById("dWay").innerHTML = "Driveway: Driveway not required";
+            }
+
+            if(stored_criteria[13])
+            {
+                document.getElementById("pool").innerHTML = "Pool or Hot Tub:  Pool or hot tub is required";
+            }
+            else
+            {
+                document.getElementById("pool").innerHTML = "Pool or Hot Tub:  Pool or hot tub not required";
+            }
+
+            var stored_listings = JSON.parse(sessionStorage.getItem("filtered-listings"));
+            if(stored_listings.length == 0)
+            {
+                document.getElementById("noOfListings").innerHTML = "There are no listings meeting your criteria. Please adjust your criteria and try again."
+            }
+            else
+            {
+                document.getElementById("noOfListings").innerHTML = "There are " + stored_listings.length + " listings that meet your criteria"
+            }
+            
+
+        </script>
+    </div>
+
+    <div class="container-fluid overflow-hidden" id="listings-container">
+    </div>
+
+    <script type="text/javascript">
+        var stored_listings = JSON.parse(sessionStorage.getItem("filtered-listings"));
+        const formatter = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'CAD' });
+        let loc = "Location: ";
+        let price = "Price: "
+
+        window.onload = loadMoreListings();
+
+        function loadMoreListings() {
+
+            let num_favorites = 0;
+
+            //LOAD THE REMAINING FIVE LISTINGS
+            for (let i = 0; i < stored_listings.length; i++) {
+
+                //IF NO LISTING RETURNED, DONT BOTHER
+                if (true) 
+                {
+
+                    //CREATE OUTER DIV
+                    const newDiv = document.createElement("div");
+                    newDiv.setAttribute("class", "row border border-2 border-dark-subtle rounded-top rounded-bottom mb-1 row-overrides");
+                    newDiv.setAttribute("id", "listing" + i);
+                    newDiv.setAttribute("name", "listing" + i);
+
+                    document.getElementById("listings-container").append(newDiv);
+
+                    //CREATE OUTTER IMG CONTAINER
+                    const imgDiv = document.createElement("div");
+                    imgDiv.setAttribute("class", "col-sm-3");
+                    imgDiv.setAttribute("id", "listing" + i + "-img-div");
+
+                    document.getElementById("listing" + i).append(imgDiv);
+
+                    //CREATE THE IMG ELEMENT
+                    const img = document.createElement("img");
+                    img.setAttribute("class", "img-fluid img-thumbnail");
+                    img.setAttribute("id", "listing-" + i + "-image");
+
+                    document.getElementById("listing" + i + "-img-div").append(img);
+
+                    //CREATE THE LISTING INFO DIV
+                    const listDiv = document.createElement("div");
+                    listDiv.setAttribute("class", "col-sm-9");
+                    listDiv.setAttribute("id", "listing-info-" + i);
+
+                    document.getElementById("listing" + i).append(listDiv);
+
+                    //CREATE THE PRICE AND LOCATION DIVS CONTAINER
+                    const priceLocDiv = document.createElement("div");
+                    priceLocDiv.setAttribute("class", "row");
+                    priceLocDiv.setAttribute("id", "listing-" + i + "-priceLoc");
+
+                    document.getElementById("listing-info-" + i).append(priceLocDiv);
+
+                    //CREATE PRICE DIV
+                    const priceDiv = document.createElement("div");
+                    priceDiv.setAttribute("class", "col-sm-3 fw-bold fs-2");
+                    priceDiv.setAttribute("id", "listing-" + i + "-price");
+
+                    document.getElementById("listing-" + i + "-priceLoc").append(priceDiv);
+
+                    //CREAT LOCATION DIV
+                    const locDiv = document.createElement("div");
+                    locDiv.setAttribute("class", "col-sm-7 fw-bold fs-3 text-center");
+                    locDiv.setAttribute("id", "listing-" + i + "-location");
+
+                    document.getElementById("listing-" + i + "-priceLoc").append(locDiv);
+
+                    //CREATE THE DESCRIPTION CONTAINER
+                    const descDiv = document.createElement("div");
+                    descDiv.setAttribute("class", "row");
+                    descDiv.setAttribute("id", "listing-" + i + "-dec");
+
+                    document.getElementById("listing-info-" + i).append(descDiv);
+
+                    //CREATE THE DESCRIPTION DIV
+                    const descInfoDiv = document.createElement("div");
+                    descInfoDiv.setAttribute("class", "col fs-3");
+                    descInfoDiv.setAttribute("id", "listing-" + i + "-desc");
+
+                    document.getElementById("listing-" + i + "-dec").append(descInfoDiv);
+
+                    //CREATE THE BUTTON CONTAINER
+                    const buttonDiv = document.createElement("div");
+                    buttonDiv.setAttribute("class", "row");
+                    buttonDiv.setAttribute("id", "listing-" + i + "-btn");
+
+                    document.getElementById("listing-info-" + i).append(buttonDiv);
+
+                    //CREATE THE BUTTON
+                    const viewButton = document.createElement("BUTTON");
+                    viewButton.setAttribute("class", "btn btn-primary");
+                    viewButton.setAttribute("id", stored_listings[i].listingID);
+                    viewButton.setAttribute("name", "view-" + i);
+                    viewButton.onclick = function () { saveListing(document.getElementsByName("view-" + i)[0].id) }
+                    viewButton.innerHTML = "View Listing";
+
+                    document.getElementById("listing-" + i + "-btn").append(viewButton);
+
+                    //FILL THE APPROPIATE INFORMATION INTO THE DIVS
+                    document.getElementById("listing-" + i + "-image").src = stored_listings[i].image;
+                    document.getElementById("listing-" + i + "-price").innerHTML = price.concat(formatter.format(stored_listings[i].price));
+                    document.getElementById("listing-" + i + "-desc").innerHTML = stored_listings[i].longDesc;
+                    document.getElementById("listing-" + i + "-location").innerHTML = loc.concat(stored_listings[i].location);
+
+                    num_favorites = num_favorites + 1;
+                }
+            }
+
+            if (num_favorites == 0) {
+                document.getElementById("listings-container").innerHTML = "<p class='text-center fw-bold fs-1 text-danger'>NO LISTINGS TO SHOW</>";
+            }
+        }
+
+        function saveListing(id) {
+            sessionStorage.setItem("id", id);
+            location.href = "listingInformation.html"
+        }
+    </script>
+
+</body>
+
+</html>
