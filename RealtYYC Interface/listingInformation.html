@@ -114,11 +114,39 @@
                     <div class="row">
                         <h1 class="text-center fs-bold"><u>Features</u></h1>
                     </div>
-                    <div class="col">
-
+                    <div class="col-sm-6 text-center">
+                        <div class="row">
+                            <p id="size">Square Footage:</p>
+                        </div>
+                        <div class="row">
+                            <p id="noOfBathrooms">Number of Bathrooms:</p>
+                        </div>
+                        <div class="row">
+                            <p id="noOfBedrooms">Number of Bedrooms:</p>
+                        </div>
+                        <div class="row">
+                            <p id="noOfGarages">Number of Garages:</p>
+                        </div>
                     </div>
-                    <div class="col">
-
+                    <div class="col-sm-6 text-center">
+                        <div class="row">
+                            <p id="hasBasement">Has A Basement?:</p>
+                        </div>
+                        <div class="row">
+                            <p id="hasAirCon">Has Air Conditioning?:</p>
+                        </div>
+                        <div class="row">
+                            <p id="hasFireplace">Has A Fireplace?:</p>
+                        </div>
+                        <div class="row">
+                            <p  id="hasDriveway">Has A Driveway?:</p>
+                        </div>
+                        <div class="row">
+                            <p  id="hasBackyard">Has A Backyard?:</p>
+                        </div>
+                        <div class="row">
+                            <p id="hasPool">Has A Pool?:</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -141,10 +169,16 @@
         document.getElementById("inside-3").src = listing.interiorImages[2];
         document.getElementById("inside-4").src = listing.interiorImages[3];
         document.getElementById("inside-5").src = listing.interiorImages[4];
-        //document.getElementById("list-bedrooms").innerHTML = "Bedrooms: " + listing.noBedrooms;
-        //document.getElementById("list-bathrooms").innerHTML = "Bathrooms: " + listing.noBathrooms;
-        //document.getElementById("list-floors").innerHTML = "Floors: " + listing.floors;
-        //document.getElementById("list-basement").innerHTML = "Basement: " + listing.basement;
+        document.getElementById("size").innerHTML = "Square Footage: " + listing.size;
+        document.getElementById("noOfBathrooms").innerHTML = "Number of Bathrooms: " + listing.noBathrooms;
+        document.getElementById("noOfBedrooms").innerHTML = "Number of Bedrooms: " + listing.noBedrooms;
+        document.getElementById("noOfGarages").innerHTML = "Number of Garages: " + listing.noGarages;
+        document.getElementById("hasBasement").innerHTML = "Basement: " + listing.basement;
+        document.getElementById("hasAirCon").innerHTML = "Air Conditioning: " + listing.airCond;
+        document.getElementById("hasFireplace").innerHTML = "Fireplace: " + listing.fireplace;
+        document.getElementById("hasDriveway").innerHTML = "Driveway: " + listing.driveway;
+        document.getElementById("hasBackyard").innerHTML = "Backyard: " + listing.backyard;
+        document.getElementById("hasPool").innerHTML = "Pool: " + listing.pool;
 
         window.onload = function setButtons() {
             if (listing.isFavorited == true) {
@@ -165,12 +199,9 @@
             document.getElementById("unfavorite").disabled = true;
         }
 
-        function FavoriteTheListing()
-        {
-            for(var i = 0; i < stored_listings.length; i++)
-            {
-                if(stored_listings[i].listingID == listing.listingID)
-                {
+        function FavoriteTheListing() {
+            for (var i = 0; i < stored_listings.length; i++) {
+                if (stored_listings[i].listingID == listing.listingID) {
                     stored_listings[i].isFavorited = true;
                     document.getElementById("favorite").disabled = true;
                     document.getElementById("unfavorite").disabled = false;
@@ -179,12 +210,9 @@
             }
         }
 
-        function UnFavoriteTheListing()
-        {
-            for(var i = 0; i < stored_listings.length; i++)
-            {
-                if(stored_listings[i].listingID == listing.listingID)
-                {
+        function UnFavoriteTheListing() {
+            for (var i = 0; i < stored_listings.length; i++) {
+                if (stored_listings[i].listingID == listing.listingID) {
                     stored_listings[i].isFavorited = false;
                     document.getElementById("favorite").disabled = false;
                     document.getElementById("unfavorite").disabled = true;
@@ -194,4 +222,5 @@
         }
     </script>
 </body>
+
 </html>
