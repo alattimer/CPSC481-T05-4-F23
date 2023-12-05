@@ -538,19 +538,16 @@
             }
             else {
                 for (var i = 0; i < listings.length; i++) {
-                    if(listings[i].location.includes(searchString))
-                    {
+                    if (listings[i].location.includes(searchString)) {
                         searched_listings.push(listings[i]);
                     }
                 }
 
-                if(searched_listings.length > 0)
-                {
+                if (searched_listings.length > 0) {
                     sessionStorage.setItem("searched_listings", JSON.stringify(searched_listings));
                     location.href = "searchedListings.html"
                 }
-                else
-                {
+                else {
                     alert("No Locations Match Search Criteria");
                 }
             }
