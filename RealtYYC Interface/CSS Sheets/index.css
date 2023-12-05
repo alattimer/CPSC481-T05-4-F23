@@ -8,11 +8,11 @@
 }
 
 #body-overrides {
-    background-image: url("background.png");
+    background-image: url("Background.png");
 }
 
 .row-overrides{ 
-    background-color: lightcyan !important;
+    background-color: rgb(206, 230, 236) !important;
 }
 
 ul {
@@ -91,3 +91,15 @@ li {
 .col-12 {
     width: 100%;
 }
+
+.message-container {
+    background-color: rgb(206, 230, 236); /* Set the BG color to blue */
+    padding: 10px;
+    margin: 20px 0;
+    text-align: center;
+}
+
+.text-col {
+    color: rgb(193, 29, 29); /* Set text color to white */
+}
+
