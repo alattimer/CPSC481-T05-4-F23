@@ -21,7 +21,8 @@ var listings = [
         fireplace: true,
         driveway: false,
         pool: false,
-        backyard: false
+        backyard: false,
+        interiorImages: ["House Images/InteriorPictures/defaultHome/office.png", "House Images/InteriorPictures/defaultHome/livingRoom.png", "House Images/InteriorPictures/defaultHome/kitchen.png", "House Images/InteriorPictures/defaultHome/diningRoom.png", "House Images/InteriorPictures/defaultHome/bathroom.png"]
     },
     {
         image: "House Images/listing2.jpg",
@@ -43,7 +44,8 @@ var listings = [
         fireplace: true,
         driveway: true,
         pool: false,
-        backyard: true
+        backyard: true,
+        interiorImages: ["House Images/InteriorPictures/listing2/office2.png", "House Images/InteriorPictures/listing2/livingRoom2.png", "House Images/InteriorPictures/listing2/kitchen2.png", "House Images/InteriorPictures/listing2/diningRoom2.png", "House Images/InteriorPictures/listing2/bathroom2.png"]
     },
     {
         image: "House Images/listing3.jpg",
@@ -65,7 +67,8 @@ var listings = [
         fireplace: true,
         driveway: true,
         pool: false,
-        backyard: true
+        backyard: true,
+        interiorImages: ["House Images/InteriorPictures/listing3/office3.png", "House Images/InteriorPictures/listing3/livingRoom3.png", "House Images/InteriorPictures/listing2/kitchen3.png", "House Images/InteriorPictures/listing2/diningRoom3.png", "House Images/InteriorPictures/listing2/bathroom3.png"]
     },
     {
         image: "House Images/listing4.jpg",
@@ -87,7 +90,8 @@ var listings = [
         fireplace: false,
         driveway: false,
         pool: false,
-        backyard: false
+        backyard: false,
+        interiorImages: ["House Images/InteriorPictures/listing4/office4.png", "House Images/InteriorPictures/listing4/livingRoom4.png", "House Images/InteriorPictures/listing4/kitchen4.png", "House Images/InteriorPictures/listing4/diningRoom4.png", "House Images/InteriorPictures/listing4/bathroom4.png"]
     },
     {
         image: "House Images/listing5.jpg",
@@ -110,7 +114,8 @@ var listings = [
         fireplace: true,
         driveway: false,
         pool: false,
-        backyard: false
+        backyard: false,
+        interiorImages: ["House Images/InteriorPictures/listing5/office5.png", "House Images/InteriorPictures/listing5/livingRoom5.png", "House Images/InteriorPictures/listing5/kitchen5.png", "House Images/InteriorPictures/listing5/diningRoom5.png", "House Images/InteriorPictures/listing5/bathroom5.png"]
     },
     {
         image: "House Images/listing6.png",
@@ -133,7 +138,8 @@ var listings = [
         fireplace: true,
         driveway: false,
         pool: false,
-        backyard: false
+        backyard: false,
+        interiorImages: ["House Images/InteriorPictures/listing5/office5.png", "House Images/InteriorPictures/listing5/livingRoom5.png", "House Images/InteriorPictures/listing5/kitchen5.png", "House Images/InteriorPictures/listing5/diningRoom5.png", "House Images/InteriorPictures/listing5/bathroom5.png"]
     },
     {
         image: "House Images/listing7.jpg",
@@ -155,7 +161,8 @@ var listings = [
         fireplace: true,
         driveway: false,
         pool: true,
-        backyard: true
+        backyard: true,
+        interiorImages: ["House Images/InteriorPictures/listing5/office5.png", "House Images/InteriorPictures/listing5/livingRoom5.png", "House Images/InteriorPictures/listing5/kitchen5.png", "House Images/InteriorPictures/listing5/diningRoom5.png", "House Images/InteriorPictures/listing5/bathroom5.png"]
     },
     {
         image: "House Images/listing8.jpg",
@@ -177,7 +184,8 @@ var listings = [
         fireplace: false,
         driveway: false,
         pool: true,
-        backyard: false
+        backyard: false,
+        interiorImages: ["House Images/InteriorPictures/listing8/office8.png", "House Images/InteriorPictures/listing8/livingRoom8.png", "House Images/InteriorPictures/listing8/kitchen8.png", "House Images/InteriorPictures/listing8/diningRoom8.png", "House Images/InteriorPictures/listing8/bathroom8.png"]
     },
     {
         image: "House Images/listing9.jpg",
@@ -199,7 +207,8 @@ var listings = [
         fireplace: true,
         driveway: true,
         pool: false,
-        backyard: true
+        backyard: true,
+        interiorImages: ["House Images/InteriorPictures/listing9/office9.png", "House Images/InteriorPictures/listing9/livingRoom9.png", "House Images/InteriorPictures/listing9/kitchen9.png", "House Images/InteriorPictures/listing9/diningRoom9.png", "House Images/InteriorPictures/listing9/bathroom9.png"]
     },
     {
         image: "House Images/listing10.jpg",
@@ -221,7 +230,8 @@ var listings = [
         fireplace: true,
         driveway: true,
         pool: false,
-        backyard: true
+        backyard: true,
+        interiorImages: ["House Images/InteriorPictures/listing8/office8.png", "House Images/InteriorPictures/listing8/livingRoom8.png", "House Images/InteriorPictures/listing8/kitchen8.png", "House Images/InteriorPictures/listing8/diningRoom8.png", "House Images/InteriorPictures/listing8/bathroom8.png"]
     }];
 
 // Functions to get and store local storage

@@ -82,13 +82,19 @@
                 <div id="carousel" class="carousel slide col-sm-3">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img src="House Images/DefaultHouse.jpg" class="d-block w-100 img-thumbnail" alt="...">
+                            <img src="" class="d-block w-100 img-thumbnail" id="inside-1" alt="...">
                         </div>
                         <div class="carousel-item">
-                            <img src="House Images/DefaultHouse.jpg" class="d-block w-100 img-thumbnail" alt="...">
+                            <img src="" class="d-block w-100 img-thumbnail" id="inside-2" alt="...">
                         </div>
                         <div class="carousel-item">
-                            <img src="House Images/DefaultHouse.jpg" class="d-block w-100 img-thumbnail" alt="...">
+                            <img src="" class="d-block w-100 img-thumbnail" id="inside-3" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="" class="d-block w-100 img-thumbnail" id="inside-4" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="" class="d-block w-100 img-thumbnail" id="inside-5" alt="...">
                         </div>
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
@@ -126,6 +132,11 @@
         document.getElementById("listing-location").innerHTML = "Location: " + listing.location;
         document.getElementById("listing-price").innerHTML = "Price: " + formatter.format(listing.price);
         document.getElementById("listing-desc").innerHTML = listing.longDesc;
+        document.getElementById("inside-1").src = listing.interiorImages[0];
+        document.getElementById("inside-2").src = listing.interiorImages[1];
+        document.getElementById("inside-3").src = listing.interiorImages[2];
+        document.getElementById("inside-4").src = listing.interiorImages[3];
+        document.getElementById("inside-5").src = listing.interiorImages[4];
         //document.getElementById("list-bedrooms").innerHTML = "Bedrooms: " + listing.noBedrooms;
         //document.getElementById("list-bathrooms").innerHTML = "Bathrooms: " + listing.noBathrooms;
         //document.getElementById("list-floors").innerHTML = "Floors: " + listing.floors;
