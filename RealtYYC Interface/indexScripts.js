@@ -318,6 +318,16 @@ function filterListings() {
     var baths = parseFloat(bathroomsNo.value);
     var garages = parseInt(garagesNo.value);
 
+    if(minPrice >= maxPrice || minSize >= maxSize)
+    {
+        document.getElementById("invalidSearch").hidden = false;
+        return;
+    }
+    else
+    {
+        document.getElementById("invalidSearch").hidden = true;
+    }
+
     var filteredListings = [];
     for (var i = 0; i < listings.length; i++) {
         match = true;
@@ -362,11 +372,11 @@ function filterListings() {
         }
     }
     console.log(filteredListings)
-    //TODO: Somehow convert these filteredListings to HTML
-    // I added the conversion in the function below
 
-    var returnedHTMLString = HTMLConversion(filteredListings);
-    return returnedHTMLString;
+    criteria = [minPrice, maxPrice, minSize, maxSize, type, beds, baths, garages, bYard, base, AC, fplace, dWay, pool];
+    sessionStorage.setItem("filter-criteria", JSON.stringify(criteria));
+    sessionStorage.setItem("filtered-listings", JSON.stringify(filteredListings));
+    location.href = "filteredListings.html"
 }
 
 function HTMLConversion(filteredListings) {
@@ -440,6 +450,7 @@ function resetFilters() {
     document.getElementById("fireplace").checked = false;
     document.getElementById("dWay").checked = false;
     document.getElementById("pool").checked = false;
+    document.getElementById("invalidSearch").hidden = true;
 }
 
 //const filteredListings = filterListings(listings);
