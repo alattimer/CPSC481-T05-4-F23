@@ -35,9 +35,10 @@
         document.getElementById("popup").style.display = "block";
       }
     
-      function hidePopup() {
+      function hidePopup(event) {
+        event.preventDefault(); // Prevent page reload
         document.getElementById("popup").style.display = "none";
-      }
+    }
     </script>
     
         <link rel="stylesheet" href="CSS Sheets/realtors.css">
@@ -68,11 +69,14 @@
 
         </div>
     </nav>
-          <!-- Popup -->
-<div id="popup" class="popup-container">
-  <p>This feature is under development!</p>
-  <button onclick="hidePopup()">Close</button>
-</div>
+    <!-- Popup -->
+      <div class="popup-container" id="popup">
+        <div class="popup">
+          <p>This feature is under development!</p>
+              <button onclick="hidePopup(event)">Close</button>
+          </div>
+      </div>
+
     <!--Selectable letter search feature-->
     <div class="SelectableLetters">
 
@@ -170,6 +174,7 @@
               </div>
           </div>
         </div>
+
         <div class="row align-items-center">
           <div class="col">
             <div id = "H" class="card mb-3" style="max-width: 540px;">
@@ -209,7 +214,6 @@
                 </div>
               </div>
           </div>
-          
           <div class="col">
             <div id = "J" class="card mb-3" style="max-width: 540px;height:470px;">
                 <div class="row g-0">
@@ -230,6 +234,68 @@
               </div>
           </div>
         </div>
+
+        <div class="row align-items-end">
+          <div class="col">
+            <div id ="K" class="card mb-3" style="max-width: 540px; height:470px;">
+                <div class="row g-0">
+                  <div class="col-md-4">
+                    <img src="Realtor Images/1.jpg" class="img-fluid rounded-start" alt="...">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">Ken</h5>
+                      <p class="card-text">A good real estate agent doesn’t disappear once the closing papers are signed.<br><br><strong>Number of Transactions</strong>
+                        <br>Ken facilitated the sale of 14 residential properties, including single-family homes and condominiums. <br><br>
+                        <strong>Client Satisfaction Rating</strong><br> 4.2/5 Based on an annual review conducted by RealtYYC<br>
+                      </p><a href="https://www.linkedin.com/in/bella-a-942897105/?originalSubdomain=ca">Linkedin</a>
+                      <p class="card-text"><small class="text-muted">Phone: 403-560-8520 <br>Email: Ken@REALTYYC.ca</small></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+          <div class="col">
+            <div id = "N" class="card mb-3" style="max-width: 540px; height:210px;height:470px;">
+                <div class="row g-0">
+                  <div class="col-md-4">
+                    <img src="Realtor Images/2.jpg" class="img-fluid rounded-start" alt="Photo of a realtor">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">Nora</h5>
+                      <p class="card-text">More space between you and your neighbor.<br> <br><br><strong>Number of Transactions</strong>
+                        <br>Nora has successfully closed 33 real estate transactions in the past year. <br><br>
+                        <br><strong>Client Satisfaction Rating</strong><br> 4.4/5 Based on an annual review conducted by RealtYYC
+                      </p><a href="https://www.linkedin.com/in/bella-a-942897105/?originalSubdomain=ca">Linkedin</a>
+                      <p class="card-text"><small class="text-muted">Phone: 403-820-38923<br>Email: Nora@REALTYYC.ca
+                    </small></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+          <div class="col">
+            <div id = "O" class="card mb-3" style="max-width: 540px; height: 210px;height:470px;">
+                <div class="row g-0">
+                  <div class="col-md-4">
+                    <img src="Realtor Images/3.jpg" class="img-fluid rounded-start" alt="...">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">Oliver</h5>
+                      <p class="card-text">The shortest distance between paradise and the place you call home.<br> <br><strong>Number of Transactions</strong>
+                        <br>Oliver has successfully closed 20 real estate transactions in the past year. <br><br>
+                        <br><strong>Client Satisfaction Rating</strong><br> 4.6/5 Based on an annual review conducted by RealtYYC<br>
+                      </p><a href="https://www.linkedin.com/in/bella-a-942897105/?originalSubdomain=ca">Linkedin</a>
+                      <p class="card-text"><small class="text-muted">Phone: 403-812-2205 <br>Email: Oliver@REALTYYC.ca</small></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+        
         <div class="row align-items-end">
           <div class="col">
             <div id ="P" class="card mb-3" style="max-width: 540px; height:470px;">

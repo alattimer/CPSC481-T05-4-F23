@@ -28,7 +28,28 @@
             <form class="container-fluid">
                 <input type="text" placeholder="Search By Address..." id="address-search">
                 <button class="btn btn-secondary" type="button" onclick="attemptSearch()">Search</button>
-                <button class="btn btn-secondary" type="button">How To List</button>
+
+                <!-- Popup -->
+                <div class="popup-container" id="popup">
+                    <div class="popup">
+                    <p>This feature is under development!</p>
+                        <button onclick="hidePopup(event)">Close</button>
+                    </div>
+                </div>
+
+                <button class="btn btn-secondary" type="button" onclick="showPopup()">How To List</button>
+                <script>
+                    // JavaScript functions for under development feature
+                    function showPopup() {
+                      document.getElementById("popup").style.display = "block";
+                    }
+                  
+                    function hidePopup(event) {
+                      event.preventDefault(); // Prevent page reload
+                      document.getElementById("popup").style.display = "none";
+                  }
+                  </script>
+
                 <button class="btn btn-secondary" type="button" onclick="location.href = 'favoritedListings.html'">View
                     Favorited Listings</button>
                 <button class="btn btn-secondary" type="button" onclick="location.href = 'realtors.html'">Current
