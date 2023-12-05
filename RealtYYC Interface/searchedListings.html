@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!--BOOTSTRAP CDN-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!--END OF BOOTSTRAP CDN-->
+    <script type="text/javascript" src="indexScripts.js"></script>
+    <link rel="stylesheet" href="CSS Sheets/index.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body id="body-overrides">
+
+    <!--THIS ROW IS FOR THE TOP OF THE WEBPAGE, USED FOR THE REALTYYC BANNER AND MENU OPTIONS-->
+
+    <nav class="navbar navbar-expand-sm">
+        <div class="container-fluid">
+
+            <a class="navbar-brand" href="#">
+                <img src="House Images/logo.png" class="img-fluid" alt="...">
+            </a>
+
+            <form class="container-fluid">
+                <button class="btn btn-secondary" type="button" onclick="location.href = 'index.html'">Back To Listings</button>
+                <button class="btn btn-secondary" type="button" onclick="location.href = 'favoritedListings.html'">View Favorited Listings</button>
+                <button class="btn btn-secondary" type="button" onclick="location.href = 'realtors.html'">Current Realtors</button>
+            </form>
+        </div>
+    </nav>
+
+    <!-- LISTING CONTAINER, EACH ROW IS A NEW LISTING TO SHOW OUR CLIENTS -->
+    <div class="container-fluid overflow-hidden" id="listings-container">
+    </div>
+
+    <script type="text/javascript">
+        window.name = "index";
+        const formatter = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'CAD' });
+        let loc = "Location: ";
+        let price = "Price: "
+
+        window.onload = loadSearchedListings();
+
+        function loadSearchedListings() {
+
+            //LOAD THE REMAINING FIVE LISTINGS
+            var searched_listings = JSON.parse(sessionStorage.getItem("searched_listings"));
+
+            for (let int = 0; int < searched_listings.length; int++) {
+
+                //CREATE OUTER DIV
+                const newDiv = document.createElement("div");
+                newDiv.setAttribute("class", "row border border-2 border-dark-subtle rounded-top rounded-bottom mb-1 row-overrides");
+                newDiv.setAttribute("id", "listing" + int);
+                newDiv.setAttribute("name", "listing" + int);
+
+                document.getElementById("listings-container").append(newDiv);
+
+                //CREATE OUTTER IMG CONTAINER
+                const imgDiv = document.createElement("div");
+                imgDiv.setAttribute("class", "col-sm-3");
+                imgDiv.setAttribute("id", "listing" + int + "-img-div");
+
+                document.getElementById("listing" + int).append(imgDiv);
+
+                //CREATE THE IMG ELEMENT
+                const img = document.createElement("img");
+                img.setAttribute("class", "img-fluid img-thumbnail");
+                img.setAttribute("id", "listing-" + int + "-image");
+
+                document.getElementById("listing" + int + "-img-div").append(img);
+
+                //CREATE THE LISTING INFO DIV
+                const listDiv = document.createElement("div");
+                listDiv.setAttribute("class", "col-sm-9");
+                listDiv.setAttribute("id", "listing-info-" + int);
+
+                document.getElementById("listing" + int).append(listDiv);
+
+                //CREATE THE PRICE AND LOCATION DIVS CONTAINER
+                const priceLocDiv = document.createElement("div");
+                priceLocDiv.setAttribute("class", "row");
+                priceLocDiv.setAttribute("id", "listing-" + int + "-priceLoc");
+
+                document.getElementById("listing-info-" + int).append(priceLocDiv);
+
+                //CREATE PRICE DIV
+                const priceDiv = document.createElement("div");
+                priceDiv.setAttribute("class", "col-sm-3 fs-4");
+                priceDiv.setAttribute("id", "listing-" + int + "-price");
+
+                document.getElementById("listing-" + int + "-priceLoc").append(priceDiv);
+
+                //CREAT LOCATION DIV
+                const locDiv = document.createElement("div");
+                locDiv.setAttribute("class", "col-sm-6 fs-4 text-center");
+                locDiv.setAttribute("id", "listing-" + int + "-location");
+
+                document.getElementById("listing-" + int + "-priceLoc").append(locDiv);
+
+                //CREATE THE DESCRIPTION CONTAINER
+                const descDiv = document.createElement("div");
+                descDiv.setAttribute("class", "row");
+                descDiv.setAttribute("id", "listing-" + int + "-dec");
+
+                document.getElementById("listing-info-" + int).append(descDiv);
+
+                //CREATE THE DESCRIPTION DIV
+                const descInfoDiv = document.createElement("div");
+                descInfoDiv.setAttribute("class", "col");
+                descInfoDiv.setAttribute("id", "listing-" + int + "-desc");
+
+                document.getElementById("listing-" + int + "-dec").append(descInfoDiv);
+
+                //CREATE THE BUTTON CONTAINER
+                const buttonDiv = document.createElement("div");
+                buttonDiv.setAttribute("class", "row");
+                buttonDiv.setAttribute("id", "listing-" + int + "-btn");
+
+                document.getElementById("listing-info-" + int).append(buttonDiv);
+
+                //CREATE THE BUTTON
+                const viewButton = document.createElement("BUTTON");
+                viewButton.setAttribute("class", "btn btn-primary");
+                viewButton.setAttribute("id", searched_listings[int].listingID);
+                viewButton.setAttribute("name", "view-" + int);
+                viewButton.onclick = function () { saveListing(document.getElementsByName("view-" + int)[0].id) }
+                viewButton.innerHTML = "View Listing";
+
+                // Set width and height
+                viewButton.style.width = "200px";
+                viewButton.style.height = "40px";
+                viewButton.style.marginTop = "20px";
+
+                document.getElementById("listing-" + int + "-btn").append(viewButton);
+
+                //FILL THE APPROPIATE INFORMATION INTO THE DIVS
+                document.getElementById("listing-" + int + "-image").src = searched_listings[int].image;
+                document.getElementById("listing-" + int + "-price").innerHTML = price.concat(formatter.format(searched_listings[int].price));
+                document.getElementById("listing-" + int + "-desc").innerHTML = searched_listings[int].longDesc;
+                document.getElementById("listing-" + int + "-location").innerHTML = loc.concat(searched_listings[int].location);
+
+            }
+
+            function saveListing(id) {
+                sessionStorage.setItem("id", id);
+                location.href = "listingInformation.html"
+            }
+        }
+    </script>
+
+</body>
+
+</html>
