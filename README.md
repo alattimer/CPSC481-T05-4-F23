@@ -17,7 +17,7 @@ Below is a summary of the main functions of our system. The walkthrough will exp
   - Current Realtors Button. This button allows a user to view all realtors associated with RealtYYC and learn about them as well as their contact information.
   - "View Listing" allows a user to select a house listing to view further details. 
 - Current Realtors Page
-    - Buttons corresponding to letters of the alphabet allow a user to scroll to a specific section of the page to select a realtor with a specific first name if there is a realtor associated with that name.
+    - Buttons corresponding to letters of the alphabet allow a user to scroll to a specific section of the page to select a realtor with a specific first name if there is a realtor associated with that name. For example, the letter "H" will scroll to Harry.
     - Realtor profiles are linked to their LinkedIn and selecting "LinkedIn" will redirect a user to their page.
     - "Sort Realtors" is a feature that will be rolled out in future iterations that allows a user to sort a realtor by ratings, house transactions, etc. 
 - House Details Page
