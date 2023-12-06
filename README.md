@@ -10,8 +10,8 @@ Waterstreet, Jaxson<br>
 <strong>Functions Implemented</strong><br>
 Below is a summary of the main functions of our system. The walkthrough will explore their use in further detail. 
 - House Listings Page
-  - Filter implemented. This is a feature that allows a user to search for their ideal house by filtering by house type, number of bathrooms and bedrooms, number of garages, price, house size, and additional house options such as a fireplace. 
-  - Search by Address. This allows a user to search for houses in a specific area of Calgary.
+  - Filter implemented: This is a feature that allows a user to search for their ideal house by filtering by house type, number of bathrooms and bedrooms, number of garages, price, house size, and additional house options such as a fireplace. 
+  - Search by Address: This allows a user to search for houses in a specific area of Calgary. 
   - View favorited listings. A user can select this button to view all listings they have favorited and would like to look at and compare.
   - How to List. This is a feature that will ideally be rolled out in future iterations of this project that allows a user to list a house for sale.
   - Current Realtors Button. This button allows a user to view all realtors associated with RealtYYC and learn about them as well as their contact information.
@@ -25,10 +25,11 @@ Below is a summary of the main functions of our system. The walkthrough will exp
     - A user can view the main photo of the house as well as multiple others by clicking a button that rotates between all photos. 
 
 <strong>Walkthrough</strong>
-- Once loading the main page of the website, scroll through the house listings available. A green button at the bottom of the page labeled "Load more Listings" will allow one to view more listings.
+- Once loading the main page of the website, scroll through the house listings available. A green button at the bottom of the page labeled "Load more Listings" will allow one to view more listings. Once all listings have been loaded, the button will turn red and a message will indicate there are no more listings. 
 - If there is a specific location one would like to search by, for example, "Oak Ridge", it can be typed in the "Search by Address" bar at the top of the main page. This search feature is case-sensitive. Once typing "Oak Ridge", hitting "Search" will show all houses in this location.
 - To go back to all house listings (main page), the "Back to Listings" button can be clicked.
-- On the main page, one can filter by house criteria by selecting "Filter Search for a Home" and inputting their desired requirements by selecting an option, sliding a slider, or clicking a check box. <br> An example of house criteria could be <br> Minimum Price: 100,000, Maximum Price: 999,999 with "Finished Basement" selected.
+- On the main page, one can filter by house criteria by selecting "Filter Search for a Home" and inputting their desired requirements by selecting an option, sliding a slider, or clicking a check box. <br> An example of house criteria could be <br> Minimum Price: 100,000, Maximum Price: 999,999 with "Finished Basement" selected. If one changes their mind, they can hit "reset filters". After selecting filter criteria, one can select the blue "Search" button at the bottom of the filter pop-up.
+- After search is selected for filtering criteria, a user will see a summary of their filtering selections and the number of house listings that fit their criteria. 
 - After looking at filtered results, one can view more information about a house by selecting the "View Listing" button.
 - This will reveal all house details. The bottom right has a carousal of photos that can be clicked through by selecting the left or right ends of the photo.
 - A house can be favorited by selecting the "Favorite Listing" button underneath the information about an associated realtor. One can also unfavorite by selecting the "Unfavorite Listing" button in red.
