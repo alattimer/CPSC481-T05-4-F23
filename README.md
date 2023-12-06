@@ -7,7 +7,7 @@ Lattimer, Andrew<br>
 Vu, Nam Nguyen<br>
 Waterstreet, Jaxson<br>
 
-<strong>Functions Implemented</strong>
+<strong>Functions Implemented</strong><br>
 Below is a summary of the main functions of our system. The walkthrough will explore their use in further detail. 
 - House Listings Page
   - Filter implemented. This is a feature that allows a user to search for their ideal house by filtering by house type, number of bathrooms and bedrooms, number of garages, price, house size, and additional house options such as a fireplace. 
@@ -25,4 +25,11 @@ Below is a summary of the main functions of our system. The walkthrough will exp
     - A user is able to view the main photo of the house as well as multiple others by clicking a button that rotates between all photos. 
 
 <strong>Walkathrough</strong>
-1. 
+- Once loading the main page of the website, scroll through the house listings available. A green button at the bottom of the page labeled "Load more Listings" will allow one to view more listings.
+- If there is a specific location one would like to search by, for example, "Oak Ridge", it can by typed in the "Search by Address" bar at the top of the main page. This search feature is case-sensitive. Once typing "Oak Ridge", hitting "Search" will show all houses in this location.
+- To go back to all house listings (main page), the "Back to Listings" button can be clicked.
+- On the main page, one can filter by house criteria by selecting "Filter Search for a Home" and inputting their desired requirements by selecting an option, sliding a slider, or clicking a check box. <br> An example of a house criteria could be: <br> Minimum Price: 150,000, Maximum Price: 999,999 with "Finished Basement" selected.
+- After looking at filtered results, one can view more information about a house by selecting the "View Listing" button.
+- This will reveal all house details. The bottom right has a carousal of photos that can be clicked through by selecting the left or right ends of the photo.
+- A house can be favorited by selecting the "Favorite Listing" button underneath the information about an associated realtor. One can also unfavorite by selecting the "Unfavorite Listing" button in red.
+- All favorited listings can be viewed by selecting the "View Favorited Listings" button at the top of the screen. 
